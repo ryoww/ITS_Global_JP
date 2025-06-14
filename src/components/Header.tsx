@@ -7,7 +7,7 @@ const Header: React.FC = () => {
         <>
             <Flex w={"100%"} h={"70px"} gap={0} p={0}>
                 <Box w={"35%"} h={"100%"}>
-                    <h1>Header</h1>
+                    <h1>Icon</h1>
                 </Box>
                 <Box
                     w={"65%"}
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
                     // }}
                     style={{
                         background:
-                            "linear-gradient(to right, #1e3a8a, #06b6d4)",
+                            "linear-gradient(to right, #195FAA, #00ADAF)",
                         clipPath:
                             "polygon(0 0, 100% 0, 100% 100%, 5% 100%, 0% 0%)",
                         display: "flex",

@@ -5,10 +5,30 @@ import { Outlet } from "react-router-dom";
 const Header: React.FC = () => {
     return (
         <>
-            <Flex w={"100%"} h={"150px"} gap={0} p={0}>
-                <Box w={"25%"} h={"100%"} bg={"blue"}></Box>
-                <Box w={"75%"} h={"100%"} bg={"red"}></Box>
-                {/* <h1>Header</h1> */}
+            <Flex w={"100%"} h={"70px"} gap={0} p={0}>
+                <Box w={"35%"} h={"100%"}>
+                    <h1>Icon</h1>
+                </Box>
+                <Box
+                    w={"65%"}
+                    h={"100%"}
+                    // bg={"blue.6"}
+                    // gradient={{
+                    //     from: "blue.6",
+                    //     to: "blue.8",
+                    // }}
+                    style={{
+                        background:
+                            "linear-gradient(to right, #195FAA, #00ADAF)",
+                        clipPath:
+                            "polygon(0 0, 100% 0, 100% 100%, 5% 100%, 0% 0%)",
+                        display: "flex",
+                        alignItems: "center",
+                        paddingLeft: "1rem",
+                    }}
+                >
+                    <h1>Header</h1>
+                </Box>
             </Flex>
 
             <Outlet />

@@ -7,7 +7,7 @@ import "@mantine/core/styles.css";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="ITS_Global_JP">
             <MantineProvider>
                 <App />
             </MantineProvider>

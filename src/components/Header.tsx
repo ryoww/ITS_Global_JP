@@ -7,7 +7,8 @@ const Header: React.FC = () => {
         <>
             <Flex w={"100%"} h={150} gap={0} p={0}>
                 <Box w={"25%"} bg={"blue"}></Box>
-                <Box w={"75%"} bg={"red"}></Box>
+                {/* <Box w={"75%"} bg={"red"}></Box> */}
+                <h1>Header</h1>
             </Flex>
 
             <Outlet />

@@ -39,7 +39,7 @@ jobs:
 
             # 404.htmlを生成
             - name: Generate 404.html
-              run: cp dist/index.html dist/404.html
+              run: cp docs/index.html docs/404.html
 
             # GitHub Pagesの設定
             - name: Setup Pages
@@ -50,7 +50,7 @@ jobs:
               uses: actions/upload-pages-artifact@v3
               with:
                   # docsフォルダのみアップロード
-                  path: "dist"
+                  path: "docs"
 
             # GitHub Pagesにデプロイ
             - name: Deploy to GitHub Pages

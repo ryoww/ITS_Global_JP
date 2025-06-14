@@ -1,0 +1,58 @@
+name: Build and Deploy to gh-pages
+
+on:
+    push:
+        branches: [main]
+
+permissions:
+    contents: write
+    pages: write # 必須: Pagesに書き込み権限を与える
+    id-token: write # GitHub OIDCトークンにアクセスするために必要
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            # コードのチェックアウト
+            - uses: actions/checkout@v4
+
+            # Node.jsのセットアップ
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "20"
+
+            # Node.jsモジュールのキャッシュ
+            - name: Cache Node.js modules
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+
+            # Node.js依存関係のインストール
+            - run: npm ci
+
+            # ビルドの実行 (docsフォルダにビルド)
+            - name: Build
+              run: npm run build
+
+            # 404.htmlを生成
+            - name: Generate 404.html
+              run: cp docs/index.html docs/404.html
+
+            # GitHub Pagesの設定
+            - name: Setup Pages
+              uses: actions/configure-pages@v5
+
+            # docsフォルダをアーティファクトとしてアップロード
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  # docsフォルダのみアップロード
+                  path: "dist"
+
+            # GitHub Pagesにデプロイ
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4

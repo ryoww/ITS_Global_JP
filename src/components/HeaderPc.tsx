@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 const HeaderPc: React.FC = () => {
     const location = useLocation();
 
-    const pathName = location.pathname.split("/").pop();
+    const pathName = location.pathname.split("/")[0];
 
     return (
         <>

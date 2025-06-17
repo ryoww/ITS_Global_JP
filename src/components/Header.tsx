@@ -1,6 +1,7 @@
-import { Box, Flex, Image } from "@mantine/core";
+import { Box, Flex, Image, Stack } from "@mantine/core";
 import type React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import HeaderPc from "./HeaderPc";
 
 const Header: React.FC = () => {
     return (
@@ -15,16 +16,18 @@ const Header: React.FC = () => {
                         justifyContent: "flex-end",
                         paddingRight: "5px",
                     }}
-                    bg={"red.6"}
+                    // bg={"red.6"}
                     m={0}
                 >
-                    <Image
-                        src={"logo.png"}
-                        alt="Logo"
-                        width={65}
-                        height={65}
-                        fit="contain"
-                    />
+                    <Link to={"/"}>
+                        <Image
+                            src={"logo.png"}
+                            alt="Logo"
+                            width={65}
+                            height={65}
+                            fit="contain"
+                        />
+                    </Link>
                 </Box>
                 <Box
                     w={"80%"}
@@ -44,7 +47,7 @@ const Header: React.FC = () => {
                         paddingLeft: "1rem",
                     }}
                 >
-                    <h1>Header</h1>
+                    <HeaderPc />
                 </Box>
             </Flex>
 

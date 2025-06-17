@@ -1,9 +1,12 @@
-import { Box, Flex, Image, Stack } from "@mantine/core";
+import { Box, Flex, Image } from "@mantine/core";
 import type React from "react";
 import { Link, Outlet } from "react-router-dom";
 import HeaderPc from "./HeaderPc";
+import useResponsive from "../hooks/useResponsive";
+import HeaderPhone from "./HeaderPhone";
 
 const Header: React.FC = () => {
+    const { isPhone } = useResponsive();
     return (
         <>
             <Flex w={"100%"} h={"70px"} gap={0} p={0}>
@@ -47,7 +50,8 @@ const Header: React.FC = () => {
                         paddingLeft: "1rem",
                     }}
                 >
-                    <HeaderPc />
+                    {isPhone ? <HeaderPhone /> : <HeaderPc />}
+                    {/* <HeaderPc /> */}
                 </Box>
             </Flex>
 

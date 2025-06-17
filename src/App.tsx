@@ -25,6 +25,7 @@ const App: React.FC = () => {
                         path="/services/sap-and-erp"
                         element={<SapAndErp />}
                     />
+                    <Route path="/contact" element={<div>Contact Page</div>} />
                 </Route>
             </Routes>
         </>

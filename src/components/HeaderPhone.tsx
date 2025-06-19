@@ -6,7 +6,21 @@ const HeaderPhone: React.FC = () => {
 
     return (
         <>
-            <Drawer opened={opened} onClose={close} position="right">
+            <Drawer
+                opened={opened}
+                onClose={close}
+                position="right"
+                closeButtonProps={{
+                    icon: (
+                        <Burger
+                            opened={opened}
+                            onClick={close}
+                            aria-label="close"
+                            color="white"
+                        />
+                    ),
+                }}
+            >
                 <h3>ホームページ</h3>
 
                 <h3>サービス</h3>
@@ -19,6 +33,7 @@ const HeaderPhone: React.FC = () => {
                     onClick={open}
                     mr={"15px"}
                     aria-label="burger"
+                    color="white"
                 />
             </Flex>
         </>

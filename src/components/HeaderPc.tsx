@@ -1,21 +1,27 @@
+// src/components/HeaderPc.tsx
 import { Button, Flex, Menu } from "@mantine/core";
 import { Link, useLocation } from "react-router-dom";
+import { COLORS } from "../constants/colors"; // ← パス要調整
 
 const HeaderPc: React.FC = () => {
-    const location = useLocation();
-    const pathname = location.pathname;
-    const accentColor = "#f59e0b"; // アクセントカラー（例: Tailwindのamber-500）
+    const { pathname } = useLocation();
+
+    // ──────────────────
+    // 色の定義
+    // ──────────────────
+    const accentColor = COLORS.YELLOW; // ハイライト（黄）
+    const defaultColor = COLORS.WHITE; // 通常文字色（白）
 
     const isActive = (path: string) => pathname === path;
 
     return (
-        <Flex justify={"center"} align={"center"} w={"100%"}>
-            <Flex justify={"space-between"} align={"center"} w={"50%"}>
-                {/* ホームページ */}
+        <Flex justify="center" align="center" w="100%">
+            <Flex justify="space-between" align="center" w="80%">
+                {/* ────────── ホームページ ────────── */}
                 <Link to="/" style={{ textDecoration: "none" }}>
                     <h3
                         style={{
-                            color: isActive("/") ? accentColor : "inherit",
+                            color: isActive("/") ? accentColor : defaultColor,
                             borderBottom: isActive("/")
                                 ? `2px solid ${accentColor}`
                                 : "none",
@@ -27,21 +33,21 @@ const HeaderPc: React.FC = () => {
                         onMouseOut={(e) =>
                             (e.currentTarget.style.color = isActive("/")
                                 ? accentColor
-                                : "inherit")
+                                : defaultColor)
                         }
                     >
                         ホームページ
                     </h3>
                 </Link>
 
-                {/* サービス */}
-                <Menu>
+                {/* ────────── サービス ────────── */}
+                <Menu withinPortal>
                     <Menu.Target>
                         <h3
                             style={{
                                 color: pathname.startsWith("/services")
                                     ? accentColor
-                                    : "inherit",
+                                    : defaultColor,
                                 borderBottom: pathname.startsWith("/services")
                                     ? `2px solid ${accentColor}`
                                     : "none",
@@ -55,7 +61,7 @@ const HeaderPc: React.FC = () => {
                                 (e.currentTarget.style.color =
                                     pathname.startsWith("/services")
                                         ? accentColor
-                                        : "inherit")
+                                        : defaultColor)
                             }
                         >
                             サービス
@@ -76,34 +82,36 @@ const HeaderPc: React.FC = () => {
                                 to: "/services/sap-and-erp",
                                 label: "SAPコンサルティングとERP導入",
                             },
-                        ].map((item, index) => (
+                        ].map(({ to, label }) => (
                             <Menu.Item
-                                key={index}
+                                key={to}
                                 component={Link}
-                                to={item.to}
+                                to={to}
                                 style={{
-                                    color: isActive(item.to)
+                                    color: isActive(to)
                                         ? accentColor
-                                        : "inherit",
-                                    fontWeight: isActive(item.to) ? 600 : 400,
+                                        : COLORS.BLACK,
+                                    fontWeight: isActive(to) ? 600 : 400,
                                     transition: "all 0.2s ease",
                                     "&:hover": {
                                         color: accentColor,
-                                        backgroundColor: "transparent", // 背景色なしでテキストだけ変化
+                                        backgroundColor: "transparent",
                                     },
                                 }}
                             >
-                                {item.label}
+                                {label}
                             </Menu.Item>
                         ))}
                     </Menu.Dropdown>
                 </Menu>
 
-                {/* 会社紹介 */}
+                {/* ────────── 会社紹介 ────────── */}
                 <Link to="/about" style={{ textDecoration: "none" }}>
                     <h3
                         style={{
-                            color: isActive("/about") ? accentColor : "inherit",
+                            color: isActive("/about")
+                                ? accentColor
+                                : defaultColor,
                             borderBottom: isActive("/about")
                                 ? `2px solid ${accentColor}`
                                 : "none",
@@ -115,14 +123,14 @@ const HeaderPc: React.FC = () => {
                         onMouseOut={(e) =>
                             (e.currentTarget.style.color = isActive("/about")
                                 ? accentColor
-                                : "inherit")
+                                : defaultColor)
                         }
                     >
                         会社紹介
                     </h3>
                 </Link>
 
-                {/* お問い合わせ */}
+                {/* ────────── お問い合わせ ────────── */}
                 <Button
                     component={Link}
                     to="/contact"
@@ -130,6 +138,7 @@ const HeaderPc: React.FC = () => {
                     variant="filled"
                     radius="xl"
                     size="md"
+                    style={{ color: COLORS.BLACK }} // ボタン内の文字だけ黒
                 >
                     お問い合わせ
                 </Button>

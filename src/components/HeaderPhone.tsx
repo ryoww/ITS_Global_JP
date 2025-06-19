@@ -1,27 +1,80 @@
-import { Burger, Drawer, Flex, Image as MantineImage } from "@mantine/core";
+// src/components/HeaderPhone.tsx
+import React from "react";
+import {
+    Burger,
+    Button,
+    Drawer,
+    Flex,
+    Image as MantineImage,
+    NavLink,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { COLORS } from "../constants/colors";
 
+/* ===== NavLink 共通スタイル ======================================== */
+/* NavLink 共通スタイル ------------------------------------------------ */
+const navLinkStyles = (theme: any) => ({
+    root: {
+        padding: `0 ${theme.spacing.md}`,
+        height: 48,
+        fontSize: theme.fontSizes.xl,
+        borderBottom: "1px solid #E5E7EB",
+
+        /* ===== アクティブ行だけ上書き ===== */
+        "&[data-active]": {
+            background: "transparent", // ★ 背景を無色に
+        },
+        "&[data-active] .mantine-NavLink-label": {
+            // ★ ラベルだけ黄色
+            color: COLORS.YELLOW,
+            fontWeight: 700,
+        },
+    },
+
+    /* 子リンクの行文字はそのまま */
+    children: {
+        "& > *": {
+            background: "#D9D9D9",
+            borderBottom: "1px solid #E5E7EB",
+        },
+    },
+
+    label: { flex: 1 }, // ← ここには色を書かない
+    chevron: { color: theme.colors.gray[6] },
+});
+
+/* ============================= コンポーネント ====================== */
 const HeaderPhone: React.FC = () => {
     const [opened, { open, close }] = useDisclosure(false);
+    const { pathname } = useLocation();
 
     return (
         <>
+            {/* ---------------- Drawer ---------------- */}
             <Drawer
                 opened={opened}
                 onClose={close}
                 position="right"
-                p={0}
+                size="100%"
+                styles={{
+                    header: {
+                        background:
+                            "linear-gradient(to right,#ffffff 0%,#ffffff 85%,#195FAA 40%,#00ADAF 100%)",
+                        padding: 0,
+                        borderBottom: "1px solid #E5E7EB",
+                    },
+                    body: { padding: 0, margin: 0 },
+                }}
                 title={
-                    <Flex m={0} p={0} w={"100%"} h={"70px"}>
-                        <Link to={"/"}>
+                    <Flex m={0} p={0} w="100%" h={70}>
+                        <Link to="/" onClick={close}>
                             <MantineImage
                                 src="logo.png"
                                 alt="Logo"
-                                // bg={"red.6"}
                                 w={135.5}
                                 h={65}
-                                my={"auto"}
+                                my="auto"
                                 fit="contain"
                             />
                         </Link>
@@ -33,35 +86,103 @@ const HeaderPhone: React.FC = () => {
                             opened={opened}
                             onClick={close}
                             aria-label="close"
+                            mr="30px"
                             color="white"
-                            mr={"30px"}
+                            size="lg"
+                            lineSize={2}
                         />
                     ),
                 }}
-                /* ここで 40 % / 60 % の 2色塗り分け */
-                styles={{
-                    header: {
-                        background:
-                            "linear-gradient(to right,#ffffff 0%,#ffffff 85%,#195FAA 40%,#00ADAF 100%)",
-                        /*         └─ 左色範囲 ─┘ └─ 右色範囲 ─┘     */
-                        padding: "0px",
-                    },
-                }}
             >
-                <h3>ホームページ</h3>
-                <h3>サービス</h3>
-                <h3>お問い合わせ</h3>
+                {/* ===== NavLink ハードコーディング ===== */}
+                <NavLink
+                    label="ホームページ"
+                    component={Link}
+                    to="/"
+                    active={pathname === "/"}
+                    onClick={close}
+                    rightSection={null}
+                    styles={navLinkStyles}
+                    color="orange"
+                />
+
+                {/* サービス（デフォルトで閉じた状態） */}
+                <NavLink
+                    label="サービス"
+                    styles={navLinkStyles}
+                    childrenOffset={0}
+                    color="orange"
+                >
+                    <NavLink
+                        label="モバイルアプリケーション開発"
+                        component={Link}
+                        to="/services/flutter-and-hybrid"
+                        active={pathname === "/services/flutter-and-hybrid"}
+                        onClick={close}
+                        rightSection={null}
+                        styles={navLinkStyles}
+                        color="orange"
+                    />
+                    <NavLink
+                        label="DXソリューション"
+                        component={Link}
+                        to="/services/dx-solution"
+                        active={pathname === "/services/dx-solution"}
+                        onClick={close}
+                        rightSection={null}
+                        styles={navLinkStyles}
+                        color="orange"
+                    />
+                    <NavLink
+                        label="SAPコンサルティングとERP導入"
+                        component={Link}
+                        to="/services/sap-and-erp"
+                        active={pathname === "/services/sap-and-erp"}
+                        onClick={close}
+                        rightSection={null}
+                        styles={navLinkStyles}
+                        color="orange"
+                    />
+                </NavLink>
+
+                <NavLink
+                    label="会社紹介"
+                    component={Link}
+                    to="/about"
+                    active={pathname === "/about"}
+                    onClick={close}
+                    rightSection={null}
+                    styles={navLinkStyles}
+                    color="orange"
+                />
             </Drawer>
 
-            {/* 画面右上のトリガー Burger */}
-            <Flex justify="flex-end" w="100%">
-                <Burger
-                    opened={opened}
-                    onClick={open}
-                    mr="15px"
-                    aria-label="burger"
-                    color="white"
-                />
+            {/* ---------------- 画面上部のバーガー＋お問い合わせ ---------------- */}
+            <Flex w={"100%"} justify={"right"} gap={0} p={0} h={"100%"}>
+                <Flex justify="space-between" w="90%" my="auto">
+                    <Button
+                        component={Link}
+                        to="/contact"
+                        color="yellow"
+                        variant="filled"
+                        radius="xl"
+                        size="md"
+                        style={{ color: COLORS.BLACK }}
+                    >
+                        お問い合わせ
+                    </Button>
+
+                    <Burger
+                        opened={opened}
+                        onClick={open}
+                        mr="15px"
+                        aria-label="burger"
+                        color="white"
+                        my="auto"
+                        size="lg"
+                        lineSize={2}
+                    />
+                </Flex>
             </Flex>
         </>
     );

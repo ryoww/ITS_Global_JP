@@ -88,6 +88,8 @@ const HeaderPhone: React.FC = () => {
                             aria-label="close"
                             mr="30px"
                             color="white"
+                            size="lg"
+                            lineSize={2}
                         />
                     ),
                 }}
@@ -177,6 +179,8 @@ const HeaderPhone: React.FC = () => {
                         aria-label="burger"
                         color="white"
                         my="auto"
+                        size="lg"
+                        lineSize={2}
                     />
                 </Flex>
             </Flex>

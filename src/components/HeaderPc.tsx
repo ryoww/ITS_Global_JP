@@ -16,7 +16,7 @@ const HeaderPc: React.FC = () => {
 
     return (
         <Flex justify="center" align="center" w="100%">
-            <Flex justify="space-between" align="center" w="80%">
+            <Flex justify="space-between" align="center" w="65%">
                 {/* ────────── ホームページ ────────── */}
                 <Link to="/" style={{ textDecoration: "none" }}>
                     <h3

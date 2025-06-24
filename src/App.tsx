@@ -5,6 +5,8 @@ import About from "./pages/About";
 import DxSolution from "./pages/services/DxSolution";
 import FlutterAndHybrid from "./pages/services/FlutterAndHybrid";
 import SapAndErp from "./pages/services/SapAndErp";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
 
 const App: React.FC = () => {
     return (
@@ -25,7 +27,8 @@ const App: React.FC = () => {
                         path="/services/sap-and-erp"
                         element={<SapAndErp />}
                     />
-                    <Route path="/contact" element={<div>Contact Page</div>} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Route>
             </Routes>
         </>

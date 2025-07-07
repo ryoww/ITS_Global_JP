@@ -15,8 +15,8 @@ const HeaderPc: React.FC = () => {
     const isActive = (path: string) => pathname === path;
 
     return (
-        <Flex justify="center" align="center" w="100%">
-            <Flex justify="space-between" align="center" w="75%">
+        <Flex justify="flex-end" align="center" w="100%" mr={"10rem"}>
+            <Flex justify="space-between" align="center" w="700px">
                 {/* ────────── ホームページ ────────── */}
                 <Link to="/" style={{ textDecoration: "none" }}>
                     <h3

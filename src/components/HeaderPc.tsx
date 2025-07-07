@@ -16,7 +16,7 @@ const HeaderPc: React.FC = () => {
 
     return (
         <Flex justify="center" align="center" w="100%">
-            <Flex justify="space-between" align="center" w="65%">
+            <Flex justify="space-between" align="center" w="75%">
                 {/* ────────── ホームページ ────────── */}
                 <Link to="/" style={{ textDecoration: "none" }}>
                     <h3
@@ -127,6 +127,31 @@ const HeaderPc: React.FC = () => {
                         }
                     >
                         会社紹介
+                    </h3>
+                </Link>
+
+                {/* ────────── ブログ ────────── */}
+                <Link to="/blog" style={{ textDecoration: "none" }}>
+                    <h3
+                        style={{
+                            color: isActive("/blog")
+                                ? accentColor
+                                : defaultColor,
+                            borderBottom: isActive("/blog")
+                                ? `2px solid ${accentColor}`
+                                : "none",
+                            transition: "all 0.3s ease",
+                        }}
+                        onMouseOver={(e) =>
+                            (e.currentTarget.style.color = accentColor)
+                        }
+                        onMouseOut={(e) =>
+                            (e.currentTarget.style.color = isActive("/blog")
+                                ? accentColor
+                                : defaultColor)
+                        }
+                    >
+                        ブログ
                     </h3>
                 </Link>
 

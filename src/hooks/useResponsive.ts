@@ -5,7 +5,8 @@ const useResponsive = () => {
 
     return {
         isPhone: width <= 900,
-        isPC: width > 900,
+        isTablet: width > 900 && width <= 1535,
+        isPC: width > 1535,
     };
 };
 

@@ -39,7 +39,7 @@ const slides: SlideData[] = [
         title: "フラッターとハイブリッドのモバイル開発",
         description:
             "ITS グローバル は、先進的なフラッター技術を用いてモバイルアプリの能力を拡張します。多くのプラットフォームに対応する高性能アプリでビジネス革新をサポートします。",
-        buttonLabel: "アドバイスを得る",
+        buttonLabel: "詳細を見る",
         buttonLink: "/services/flutter-and-hybrid",
         titleColor: "#f8f9fa",
         descriptionColor: "#f8f9fa",
@@ -54,13 +54,17 @@ const slides: SlideData[] = [
         /* ボタン無し例 */
         titleColor: "#126CBD",
         descriptionColor: "#126CBD",
+        buttonLink: "/services/dx-solution",
+        buttonLabel: "お問い合わせ",
+        buttonBg: "#FFD538",
+        buttonTextColor: "#000000",
     },
     {
         image: "/home/Property-1Variant3.jpg",
         title: "SAPコンサルティングとERPの展開",
         description:
             "ITSグローバルERP専門家によるSAPコンサルティングと展開で、貴社の円滑な運営をサポートします。カスタマイズされたSAPソリューションを使用し、ビジネスリソース管理の精度と意思決定を改善します。",
-        buttonLabel: "アドバイスを得る",
+        buttonLabel: "詳細を見る",
         buttonLink: "/services/dx-solution",
         titleColor: "#FFDA3C",
         descriptionColor: "#f8f9fa",
@@ -83,10 +87,10 @@ const slides: SlideData[] = [
         image: "/home/Property-1Variant4.jpg",
         title: "フラッターとハイブリッドのモバイル開発",
         description:
-            "ITS グローバル は、先進的なフラッター技術を用いてモバイルアプリの能力を拡張します。多くのプラットフォームに対応する高性能アプリでビジネス革新をサポートします。",
+            "ITS グローバル は、先進的なFlutterを用いてモバイルアプリの能力を拡張します。多くのプラットフォームに対応する高性能アプリでビジネス革新をサポートします。",
         /* ボタン無し例 */
-        titleColor: "#FFFFFF",
-        descriptionColor: "#FFFFFF",
+        titleColor: "#f8f9fa",
+        descriptionColor: "#f8f9fa",
     },
 ];
 

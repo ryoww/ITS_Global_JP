@@ -1,7 +1,7 @@
 // src/components/HeaderPc.tsx
 import { Button, Flex, Menu } from "@mantine/core";
 import { Link, useLocation } from "react-router-dom";
-import { COLORS } from "../constants/colors"; // ← パス要調整
+import { COLORS } from "../../constants/colors";
 
 const HeaderPc: React.FC = () => {
     const { pathname } = useLocation();

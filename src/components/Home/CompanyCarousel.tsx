@@ -44,28 +44,31 @@ export const CompanyCarousel = () => {
     );
 
     return (
-        <Box py={40} w="90%" mx="auto">
+        <Box py={40} w="90%" mx="auto" mb={120}>
             <Carousel
                 h={450}
                 withIndicators
                 withControls={false}
                 plugins={[autoplay.current]}
                 emblaOptions={{ loop: true }}
-                onMouseEnter={autoplay.current.stop}
-                onMouseLeave={autoplay.current.reset}
-                styles={(theme) => ({
+                /* ⭐ インジケータだけ上書き */
+                styles={{
                     indicator: {
                         width: 12,
                         height: 12,
-                        transition: "background-color 150ms, opacity 150ms",
-                        backgroundColor: theme.colors.blue[3], // 非アクティブ
+                        borderRadius: "50%",
                         opacity: 0.6,
+
+                        /* 非アクティブ用の CSS 変数 */
+                        "--_indicator-color": "#adb5bd",
+
+                        /* アクティブ時は変数を差し替えるだけ */
                         "&[data-active]": {
                             opacity: 1,
-                            backgroundColor: theme.colors.blue[6], // アクティブ
+                            "--_indicator-color": "#4c6ef5",
                         },
                     },
-                })}
+                }}
             >
                 {slides.map((group, idx) => (
                     <CarouselSlide key={idx}>

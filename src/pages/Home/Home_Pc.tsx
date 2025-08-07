@@ -7,11 +7,17 @@ import {
     Image,
     SimpleGrid,
     Box,
+    Center,
 } from "@mantine/core";
+
 import HomeCarousel from "../../components/Home/HomeCarouselPc";
 import { ServiceCard } from "../../components/Home/HomeServiceCard";
 import { CompanyCarousel } from "../../components/Home/CompanyCarousel";
 import { MetricsSection } from "../../components/Home/MetricsSection";
+import {
+    TestimonialCard,
+    type Testimonial,
+} from "../../components/Home/TestimonialCard";
 
 const services = [
     {
@@ -40,6 +46,27 @@ const services = [
         description:
             "ITSグローバルERP専門家によるSAPコンサルティングと展開で、貴社の円滑な運営をサポートします。カスタマイズされたSAPソリューションを使用し、ビジネスリソース管理の精度と意思決定を改善します。",
         to: "/services/sap-and-erp",
+    },
+];
+
+const TESTIMONIALS: Testimonial[] = [
+    {
+        logo: "/home/icon-ibis.png",
+        company: "株式会社IBIS",
+        message:
+            "「顧客を獲得と売上増加のため、当社は人材を増やす必要がありますが、日本でエンジニアを雇うことが非常に難しい状況です。そのため、外国のソフトウェア開発企業と連携を試みました。その結果、ITS グローバルの品質、コスト、能力に非常に満足しています。」",
+    },
+    {
+        logo: "/home/icon-ysl.png",
+        company: "株式会社YSL Solution",
+        message:
+            "「日本でのIT人材の採用コストが増加しているため、プロジェクトはすべて収益を上げていません。そのため、日本語でコミュニケーションが可能で、かつ費用対効果の高い外国の開発企業を探しました。」",
+    },
+    {
+        logo: "/home/icon-ops.png",
+        company: "株式会社Ops Inn",
+        message:
+            "「顧客を獲得と売上増加のため、当社は人材を増やす必要がありますが、日本でエンジニアを雇うことが非常に難しい状況です。そのため、外国のソフトウェア開発企業と連携を試みました。その結果、ITS グローバルの品質、コスト、能力に非常に満足しています。」",
     },
 ];
 
@@ -116,6 +143,7 @@ const HomePc: React.FC = () => {
 
                 <Title
                     mt={60}
+                    mb={30}
                     order={1}
                     c="blue.8"
                     fw={800}
@@ -124,9 +152,9 @@ const HomePc: React.FC = () => {
                     サービス
                 </Title>
 
-                <Box component="section" mb={60} w={"90%"}>
+                <Box component="section" mb={120} w={"90%"}>
                     <Stack gap="xs" mb={40} align="center">
-                        <Text ta="center" size="md" w={"90%"}>
+                        <Text ta="center" size="md" w={"60%"}>
                             ITSはオフショア形式でソフトウェアサービスを開発する専門企業です。
                             高い技術力を持つ私たちは、多様な顧客のニーズに応える多くの製品を提供してきました。
                         </Text>
@@ -157,6 +185,31 @@ const HomePc: React.FC = () => {
                 <CompanyCarousel />
 
                 <MetricsSection />
+
+                <Box py={80}>
+                    <Title
+                        order={1}
+                        ta="center"
+                        mb={60}
+                        fw={900}
+                        c="blue.8"
+                        style={{ letterSpacing: "0.05em" }}
+                    >
+                        お客様の評価
+                    </Title>
+
+                    <Center>
+                        <SimpleGrid
+                            cols={{ base: 1, md: 3 }}
+                            spacing={{ base: 40, md: 32 }}
+                            w="90%"
+                        >
+                            {TESTIMONIALS.map((t) => (
+                                <TestimonialCard key={t.company} {...t} />
+                            ))}
+                        </SimpleGrid>
+                    </Center>
+                </Box>
             </Stack>
         </>
     );

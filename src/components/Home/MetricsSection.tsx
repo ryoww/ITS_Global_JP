@@ -15,7 +15,7 @@ const gradient = "linear-gradient(to right, #195FAA, #00ADAF)";
 
 /* ---------- セクションコンポーネント ---------- */
 export const MetricsSection = () => (
-    <Box bg="blue.0" py={60} w={"100%"} mx="auto">
+    <Box bg="blue.0" py={60} w={"100%"} mx="auto" mb={120}>
         <Title
             order={2}
             ta="center"
@@ -42,7 +42,6 @@ export const MetricsSection = () => (
                                     : undefined,
                         }}
                     >
-                        {/* 数字 + suffix：文字にグラデーションを適用 */}
                         <Text
                             fz={48}
                             fw={700}

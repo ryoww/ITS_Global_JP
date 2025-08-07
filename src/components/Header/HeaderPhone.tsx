@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Link, useLocation } from "react-router-dom";
-import { COLORS } from "../constants/colors";
+import { COLORS } from "../../constants/colors";
 
 /* ===== NavLink 共通スタイル ======================================== */
 /* NavLink 共通スタイル ------------------------------------------------ */

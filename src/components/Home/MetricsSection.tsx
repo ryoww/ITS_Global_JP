@@ -17,7 +17,7 @@ const gradient = "linear-gradient(to right, #195FAA, #00ADAF)";
 export const MetricsSection = () => (
     <Box bg="blue.0" py={60} w={"100%"} mx="auto" mb={120}>
         <Title
-            order={2}
+            order={1}
             ta="center"
             mb={40}
             fw={900}

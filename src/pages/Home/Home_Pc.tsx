@@ -82,7 +82,7 @@ const HomePc: React.FC = () => {
             >
                 <HomeCarousel />
 
-                <Flex w={"80%"} mt={100}>
+                <Flex w={"80%"} my={100}>
                     <Container size="md" w={"45%"}>
                         <Stack gap="sm">
                             <Title

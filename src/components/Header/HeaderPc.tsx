@@ -1,7 +1,8 @@
 // src/components/HeaderPc.tsx
-import { Button, Flex, Menu } from "@mantine/core";
+import { Button, Flex, Menu, ThemeIcon } from "@mantine/core";
 import { Link, useLocation } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
+import { IoIosArrowDown } from "react-icons/io";
 
 const HeaderPc: React.FC = () => {
     const { pathname } = useLocation();
@@ -45,6 +46,10 @@ const HeaderPc: React.FC = () => {
                     <Menu.Target>
                         <h3
                             style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: "0.25rem",
+
                                 color: pathname.startsWith("/services")
                                     ? accentColor
                                     : defaultColor,
@@ -65,6 +70,10 @@ const HeaderPc: React.FC = () => {
                             }
                         >
                             サービス
+                            <IoIosArrowDown
+                                size={25}
+                                style={{ flexShrink: 0 }}
+                            />
                         </h3>
                     </Menu.Target>
 

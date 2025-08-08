@@ -212,9 +212,9 @@ const PhoneHero = ({
 const Contact: React.FC = () => {
     const { classes } = useCardStyles();
     const { isPhone } = useResponsive();
-    const base = (import.meta.env.VITE_BASE_URL ?? "/").replace(/\/?$/, "/");
-    const bannerSrcDesktop = `${base}contact/banner-contact.png`;
-    const bannerSrcPhone = `${base}contact/bg-contact.png`;
+    const bannerSrcDesktop =
+        import.meta.env.BASE_URL + "contact/banner-contact.png";
+    const bannerSrcPhone = import.meta.env.BASE_URL + "contact/bg-contact.png";
 
     return isPhone ? (
         <PhoneHero bannerSrc={bannerSrcPhone} classes={classes} />

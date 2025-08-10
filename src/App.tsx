@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import DxSolution from "./pages/services/DxSolution";
-import FlutterAndHybrid from "./pages/services/FlutterAndHybrid";
 import SapAndErp from "./pages/services/SapAndErp";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home/Home";
 import Layout from "./Layout";
 import About from "./pages/About/About";
+import FlutterAndHybridService from "./pages/Services/Flutter/Flutter-and-Hybrid";
 
 const App: React.FC = () => {
     return (
@@ -21,7 +21,7 @@ const App: React.FC = () => {
                     />
                     <Route
                         path="/services/flutter-and-hybrid"
-                        element={<FlutterAndHybrid />}
+                        element={<FlutterAndHybridService />}
                     />
                     <Route
                         path="/services/sap-and-erp"

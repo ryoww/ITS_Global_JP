@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import About from "./pages/About";
 import DxSolution from "./pages/services/DxSolution";
 import FlutterAndHybrid from "./pages/services/FlutterAndHybrid";
 import SapAndErp from "./pages/services/SapAndErp";
@@ -7,6 +6,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home/Home";
 import Layout from "./Layout";
+import About from "./pages/About/About";
 
 const App: React.FC = () => {
     return (

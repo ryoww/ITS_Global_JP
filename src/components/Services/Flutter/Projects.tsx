@@ -96,7 +96,7 @@ const ProjectsShowcase: React.FC<Props> = ({
     );
 };
 
-const ProjectCard: React.FC<Project> = ({ src, label, height = 260 }) => {
+const ProjectCard: React.FC<Project> = ({ src, label }) => {
     return (
         <Paper
             // withBorder

@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import DxSolution from "./pages/services/DxSolution";
 import SapAndErp from "./pages/services/SapAndErp";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
@@ -7,6 +6,7 @@ import Home from "./pages/Home/Home";
 import Layout from "./Layout";
 import About from "./pages/About/About";
 import FlutterAndHybridService from "./pages/Services/Flutter/Flutter-and-Hybrid";
+import DxSolution from "./pages/Services/DX/DXSolution";
 
 const App: React.FC = () => {
     return (

@@ -1,16 +1,19 @@
 // src/components/HeaderPc.tsx
-import { Button, Flex, Menu, ThemeIcon } from "@mantine/core";
+import { Button, Flex, Menu, useMantineTheme } from "@mantine/core";
 import { Link, useLocation } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
 import { IoIosArrowDown } from "react-icons/io";
 
 const HeaderPc: React.FC = () => {
     const { pathname } = useLocation();
+    const theme = useMantineTheme();
+    const blue8 = theme.colors.blue[8]; // アクティブ時
+    const blue9 = theme.colors.blue[9]; // ホバー時
 
     // ──────────────────
     // 色の定義
     // ──────────────────
-    const accentColor = COLORS.YELLOW; // ハイライト（黄）
+    const accentColor = COLORS.YELLOW; // ヘッダーのハイライト（黄）
     const defaultColor = COLORS.WHITE; // 通常文字色（白）
 
     const isActive = (path: string) => pathname === path;
@@ -49,10 +52,9 @@ const HeaderPc: React.FC = () => {
                                 display: "inline-flex",
                                 alignItems: "center",
                                 gap: "0.25rem",
-
                                 color: pathname.startsWith("/services")
                                     ? accentColor
-                                    : defaultColor,
+                                    : defaultColor, // 親ラベルは従来どおり黄でハイライト
                                 borderBottom: pathname.startsWith("/services")
                                     ? `2px solid ${accentColor}`
                                     : "none",
@@ -72,7 +74,7 @@ const HeaderPc: React.FC = () => {
                             サービス
                             <IoIosArrowDown
                                 size={25}
-                                style={{ flexShrink: 0 }}
+                                style={{ flexShrink: 0, color: "inherit" }}
                             />
                         </h3>
                     </Menu.Target>
@@ -91,26 +93,34 @@ const HeaderPc: React.FC = () => {
                                 to: "/services/sap-and-erp",
                                 label: "SAPコンサルティングとERP導入",
                             },
-                        ].map(({ to, label }) => (
-                            <Menu.Item
-                                key={to}
-                                component={Link}
-                                to={to}
-                                style={{
-                                    color: isActive(to)
-                                        ? accentColor
-                                        : COLORS.BLACK,
-                                    fontWeight: isActive(to) ? 600 : 400,
-                                    transition: "all 0.2s ease",
-                                    "&:hover": {
-                                        color: accentColor,
-                                        backgroundColor: "transparent",
-                                    },
-                                }}
-                            >
-                                {label}
-                            </Menu.Item>
-                        ))}
+                        ].map(({ to, label }) => {
+                            const active = isActive(to);
+                            return (
+                                <Menu.Item
+                                    key={to}
+                                    component={Link}
+                                    to={to}
+                                    // Mantineのテーマ挙動をblue系に
+                                    color={active ? "blue" : undefined}
+                                    style={{
+                                        color: active ? blue8 : COLORS.BLACK, // アクティブ時は少し濃い青
+                                        fontWeight: active ? 600 : 400,
+                                        transition: "color 0.2s ease",
+                                        textDecoration: "none",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.color = blue9; // ホバー時はさらに濃い青
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.color = active
+                                            ? blue8
+                                            : COLORS.BLACK;
+                                    }}
+                                >
+                                    {label}
+                                </Menu.Item>
+                            );
+                        })}
                     </Menu.Dropdown>
                 </Menu>
 

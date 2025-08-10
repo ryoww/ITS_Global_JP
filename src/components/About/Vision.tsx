@@ -106,6 +106,8 @@ const VisionMissionAndValues: React.FC = () => {
                             radius="lg"
                             p={28}
                             style={{ background: CARD_BG }}
+                            w={305}
+                            h={315}
                         >
                             <Stack gap="xs" c="white">
                                 <Center mb={6}>

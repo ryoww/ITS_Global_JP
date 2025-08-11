@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import SapAndErp from "./pages/services/SapAndErp";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home/Home";
@@ -7,6 +6,7 @@ import Layout from "./Layout";
 import About from "./pages/About/About";
 import FlutterAndHybridService from "./pages/Services/Flutter/Flutter-and-Hybrid";
 import DxSolution from "./pages/Services/DX/DXSolution";
+import SAP from "./pages/Services/SAP/SAP";
 
 const App: React.FC = () => {
     return (
@@ -23,10 +23,7 @@ const App: React.FC = () => {
                         path="/services/flutter-and-hybrid"
                         element={<FlutterAndHybridService />}
                     />
-                    <Route
-                        path="/services/sap-and-erp"
-                        element={<SapAndErp />}
-                    />
+                    <Route path="/services/sap-and-erp" element={<SAP />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/contact" element={<Contact />} />
                 </Route>

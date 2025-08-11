@@ -1,3 +1,5 @@
+// src/components/FooterPc.tsx
+import React, { useEffect, useRef, useState } from "react";
 import {
     Box,
     Button,
@@ -13,8 +15,22 @@ import {
     Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const FooterPc: React.FC = () => {
+    // reCAPTCHA v2 Invisible
+    const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+    const [sending, setSending] = useState(false);
+
+    // EmailJS 初期化（Public Key）
+    useEffect(() => {
+        const pub = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as
+            | string
+            | undefined;
+        if (pub) emailjs.init({ publicKey: pub });
+    }, []);
+
     const form = useForm({
         initialValues: {
             name: "",
@@ -23,8 +39,67 @@ const FooterPc: React.FC = () => {
             purpose: "",
             message: "",
             agree: false,
+            hp: "", // ハニーポット（画面非表示）
+        },
+        validate: {
+            name: (v) => (v.trim() ? null : "氏名は必須です"),
+            email: (v) =>
+                /^\S+@\S+\.\S+$/.test(v)
+                    ? null
+                    : "メール形式で入力してください",
+            phone: (v) => (v.trim() ? null : "電話番号は必須です"),
+            purpose: (v) => (v ? null : "連絡目的は必須です"),
+            message: (v) => (v.trim() ? null : "内容は必須です"),
+            agree: (v) => (v ? null : "プライバシーポリシーに同意が必要です"),
         },
     });
+
+    const handleSubmit = async (values: typeof form.values) => {
+        if (sending) return;
+        if (values.hp) return; // bot疑いは無視
+
+        try {
+            setSending(true);
+
+            if (!recaptchaRef.current) {
+                alert(
+                    "reCAPTCHAの初期化待ちです。少し待って再試行してください。"
+                );
+                return;
+            }
+
+            // 1) reCAPTCHA 実行→トークン取得
+            const token = await recaptchaRef.current.executeAsync();
+            recaptchaRef.current.reset();
+            if (!token) {
+                alert("reCAPTCHAの取得に失敗しました。再試行してください。");
+                return;
+            }
+
+            // 2) EmailJS送信
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+            const templateId = import.meta.env
+                .VITE_EMAILJS_TEMPLATE_ID as string;
+
+            await emailjs.send(serviceId, templateId, {
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
+                purpose: values.purpose,
+                message: values.message,
+                subject: `お問い合わせ: ${values.purpose || "未選択"}`,
+                // EmailJS の reCAPTCHA 検証に必須のフィールド名
+                "g-recaptcha-response": token,
+            });
+
+            alert("送信しました。折り返しご連絡いたします。");
+            form.reset();
+        } catch (e: any) {
+            alert(`送信エラー: ${e?.text || e?.message || "unknown error"}`);
+        } finally {
+            setSending(false);
+        }
+    };
 
     return (
         <>
@@ -109,12 +184,29 @@ const FooterPc: React.FC = () => {
                         span={{ base: 12, md: 7 }}
                         order={{ base: 1, md: 2 }}
                     >
-                        <Title order={4} c="red.6" mb={4}>
+                        {/* <Title order={4} c="red.6" mb={4}>
                             *必須内容
-                        </Title>
+                        </Title> */}
 
-                        <form onSubmit={form.onSubmit(console.log)}>
+                        <form onSubmit={form.onSubmit(handleSubmit)}>
                             <Grid gutter={24}>
+                                {/* ハニーポット（画面非表示） */}
+                                <Grid.Col span={12}>
+                                    <TextInput
+                                        label="会社名(入力不要)"
+                                        {...form.getInputProps("hp")}
+                                        style={{
+                                            position: "absolute",
+                                            left: -9999,
+                                            width: 1,
+                                            height: 1,
+                                            overflow: "hidden",
+                                        }}
+                                        tabIndex={-1}
+                                        aria-hidden="true"
+                                    />
+                                </Grid.Col>
+
                                 {/* 氏名・メール */}
                                 <Grid.Col span={{ base: 12, md: 6 }}>
                                     <TextInput
@@ -128,6 +220,7 @@ const FooterPc: React.FC = () => {
                                 <Grid.Col span={{ base: 12, md: 6 }}>
                                     <TextInput
                                         withAsterisk
+                                        type="email"
                                         label="メール"
                                         placeholder="例: contact@mail.com"
                                         {...form.getInputProps("email")}
@@ -151,17 +244,28 @@ const FooterPc: React.FC = () => {
                                         placeholder="例: デジタル変革コンサルティング"
                                         data={[
                                             "デジタル変革コンサルティング",
-                                            "DXソリューション",
-                                            "モバイルアプリ開発",
+                                            "DX コンサルティング",
+                                            "システム開発",
+                                            "オフショア開発",
+                                            "協業・提携・その他営業など",
+                                            "視察ツアー",
                                             "その他",
                                         ]}
-                                        {...form.getInputProps("purpose")}
+                                        value={form.values.purpose}
+                                        onChange={(v) =>
+                                            form.setFieldValue(
+                                                "purpose",
+                                                v || ""
+                                            )
+                                        }
+                                        error={form.errors.purpose}
                                     />
                                 </Grid.Col>
 
                                 {/* メッセージ */}
                                 <Grid.Col span={12}>
                                     <Textarea
+                                        withAsterisk
                                         minRows={6}
                                         label="内容"
                                         placeholder="メッセージの内容を入力してください。"
@@ -169,14 +273,32 @@ const FooterPc: React.FC = () => {
                                     />
                                 </Grid.Col>
 
-                                {/* 利用規約 */}
+                                {/* プライバシーポリシー（必須） */}
                                 <Grid.Col span={12}>
                                     <Checkbox
-                                        label="会社のプライバシーポリシーに同意します。"
+                                        required
+                                        label={
+                                            <>
+                                                <span
+                                                    style={{
+                                                        color: "red",
+                                                        marginRight: 4,
+                                                    }}
+                                                >
+                                                    *
+                                                </span>
+                                                会社のプライバシーポリシーに同意します。
+                                            </>
+                                        }
                                         {...form.getInputProps("agree", {
                                             type: "checkbox",
                                         })}
                                     />
+                                    {form.errors.agree && (
+                                        <Text c="red.6" size="sm" mt={6}>
+                                            {form.errors.agree}
+                                        </Text>
+                                    )}
                                 </Grid.Col>
 
                                 {/* 送信ボタン */}
@@ -186,6 +308,7 @@ const FooterPc: React.FC = () => {
                                             type="submit"
                                             size="md"
                                             radius="xl"
+                                            loading={sending}
                                             style={{
                                                 background:
                                                     "linear-gradient(90deg,#0044a9 0%,#00adad 100%)",
@@ -196,6 +319,16 @@ const FooterPc: React.FC = () => {
                                     </Group>
                                 </Grid.Col>
                             </Grid>
+
+                            {/* Invisible reCAPTCHA（画面には出さない） */}
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={
+                                    import.meta.env
+                                        .VITE_RECAPTCHA_SITE_KEY as string
+                                }
+                                size="invisible"
+                            />
                         </form>
                     </Grid.Col>
                 </Grid>

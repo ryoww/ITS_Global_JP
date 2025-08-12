@@ -14,7 +14,7 @@ type Props = {
 };
 
 const DxSolutionPC: React.FC<Props> = ({
-    title = "フラッターとハイブリッドのモバイル開発",
+    title = "ロジスティクスおよび小売り向けのDXソリューション",
     ctaLabel = "お問い合わせ",
     bgSrc = "/service/DX/service_3_banner.png",
     height = 480,

@@ -64,11 +64,12 @@ const MobileProcess: React.FC = () => {
             <Container size="lg" w="92%">
                 <Title
                     order={1}
+                    fz={{ base: 28, md: 36 }}
                     ta="center"
                     c="blue.8"
                     fw={900}
                     mb={20}
-                    style={{ letterSpacing: "0.04em" }}
+                    style={{ letterSpacing: "0.02em" }}
                 >
                     モバイルアプリケーションの開発プロセス
                 </Title>
@@ -96,8 +97,8 @@ const MobileProcess: React.FC = () => {
                                 <Image
                                     src={import.meta.env.BASE_URL + s.img}
                                     alt=""
-                                    w={150}
-                                    h={150}
+                                    w={{ base: 200, md: 150 }}
+                                    h={{ base: 200, md: 150 }}
                                     fit="contain"
                                     style={{ display: "block" }}
                                 />

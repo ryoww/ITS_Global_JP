@@ -10,6 +10,10 @@ import {
     Text,
 } from "@mantine/core";
 
+// ★ 追加
+import "@mantine/carousel/styles.css";
+import { Carousel } from "@mantine/carousel";
+
 type Project = {
     /** カード画像（public 配下） */
     src: string;
@@ -26,6 +30,8 @@ type Props = {
     heading?: string;
     /** カード一覧 */
     items?: Project[];
+    /** ★ 追加: 画面がPhoneかどうか（親から渡す） */
+    isPhone?: boolean;
 };
 
 /* 例：画像パスは手元のファイルに合わせて変更してください */
@@ -60,6 +66,7 @@ const ProjectsShowcase: React.FC<Props> = ({
     bgSrc = "/service/flutter/service_1_actual_project_banner.png",
     heading = "実際のプロジェクト",
     items = SAMPLE_ITEMS,
+    isPhone = false, // ← 親から来ない場合はfalse
 }) => {
     return (
         <Box
@@ -77,6 +84,7 @@ const ProjectsShowcase: React.FC<Props> = ({
             <Container size="lg" w="92%">
                 <Title
                     order={1}
+                    fz={{ base: 28, md: 36 }}
                     ta="center"
                     c="white"
                     fw={900}
@@ -86,11 +94,30 @@ const ProjectsShowcase: React.FC<Props> = ({
                     {heading}
                 </Title>
 
-                <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={28}>
-                    {items.map((p) => (
-                        <ProjectCard key={p.src} {...p} />
-                    ))}
-                </SimpleGrid>
+                {isPhone ? (
+                    // ＝＝＝ Phone: Carousel 表示 ＝＝＝
+                    <Carousel
+                        withIndicators
+                        slideSize="90%"
+                        slideGap="md"
+                        // loop: true
+                        emblaOptions={{ align: "start" }} // ← ここに移動
+                        styles={{ indicators: { bottom: -10 } }}
+                    >
+                        {items.map((p) => (
+                            <Carousel.Slide key={p.src}>
+                                <ProjectCard {...p} />
+                            </Carousel.Slide>
+                        ))}
+                    </Carousel>
+                ) : (
+                    // ＝＝＝ PC/Tablet: Grid 表示 ＝＝＝
+                    <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={28}>
+                        {items.map((p) => (
+                            <ProjectCard key={p.src} {...p} />
+                        ))}
+                    </SimpleGrid>
+                )}
             </Container>
         </Box>
     );
@@ -99,10 +126,7 @@ const ProjectsShowcase: React.FC<Props> = ({
 const ProjectCard: React.FC<Project> = ({ src, label }) => {
     return (
         <Paper
-            // withBorder
-            // radius={22}
             p={0}
-            // shadow="sm"
             pos="relative"
             style={{
                 overflow: "hidden",

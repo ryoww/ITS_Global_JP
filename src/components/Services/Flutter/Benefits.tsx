@@ -82,6 +82,7 @@ const BenefitCard: React.FC<Item> = ({ icon, title, body }) => {
                 paddingTop: 52,
                 boxShadow: "0 8px 18px rgba(10, 116, 183, .12)",
             }}
+            mt={{ base: 30, md: 0 }}
         >
             <Box
                 pos="absolute"

@@ -5,7 +5,7 @@ import path from "path";
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: "/ITS_Global_JP/",
+    base: "/its/",
     build: {
         outDir: "docs",
     },

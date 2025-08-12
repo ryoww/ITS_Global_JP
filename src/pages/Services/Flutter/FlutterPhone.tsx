@@ -57,7 +57,7 @@ const FlutterPhone: React.FC<Props> = ({
                         <Title
                             order={3}
                             fw={700}
-                            fz={{ base: 32, md: 48 }}
+                            fz={{ base: 32, md: 40 }}
                             ta="left"
                             style={{ letterSpacing: "0.03em", lineHeight: 1.2 }}
                         >

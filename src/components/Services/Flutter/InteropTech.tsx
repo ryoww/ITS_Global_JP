@@ -76,6 +76,7 @@ const InteropTech: React.FC<Props> = ({
                             ta="center"
                             c="blue.8"
                             fw={900}
+                            fz={{ base: 28, md: 36 }}
                             style={{ letterSpacing: "0.04em" }}
                         >
                             {heading}
@@ -96,6 +97,7 @@ const InteropTech: React.FC<Props> = ({
                                     gap: 12,
                                     flexWrap: "wrap", // モバイルで折り返し
                                 }}
+                                ta={{ base: "center", md: "left" }}
                             >
                                 <LabelCell>{row.label}</LabelCell>
 

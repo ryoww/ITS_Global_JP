@@ -13,12 +13,13 @@ const gradient = "linear-gradient(to right, #195FAA, #00ADAF)";
 
 /* ---------- セクションコンポーネント ---------- */
 export const MetricsSection = () => (
-    <Box w={"90%"}>
+    <Box w={"90%"} mx={"auto"}>
         <Title
             order={1}
             ta="left"
-            mb={40}
-            fw={900}
+            mt={40}
+            mb={10}
+            fw={{ base: 700, md: 900 }}
             c="blue.8"
             style={{ letterSpacing: "0.05em" }}
         >

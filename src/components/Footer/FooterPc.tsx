@@ -116,9 +116,9 @@ const FooterPc: React.FC = () => {
             </Title>
 
             <Stack gap="xs" mb={60} align="center">
-                <Text ta="center" size="md" w={"50%"}>
-                    ITSはオフショア形式でソフトウェアサービスを開発する専門企業です。
-                    高い技術力を持つ私たちは、多様な顧客のニーズに応える多くの製品を提供してきました。
+                <Text ta="center" size="md" w={"70%"}>
+                    ご興味をお持ちいただき、誠にありがとうございます。弊社のサービスと製品についてのご質問やご相談がございましたら、
+                    以下のフォームにご記入ください。できるだけ早くご返信いたします。
                 </Text>
             </Stack>
 
@@ -137,7 +137,7 @@ const FooterPc: React.FC = () => {
                     >
                         <Box pos="relative">
                             {/* 左下の水色の角丸矩形 */}
-                            <Box
+                            {/* <Box
                                 pos="absolute"
                                 left={0}
                                 bottom={-24}
@@ -146,7 +146,7 @@ const FooterPc: React.FC = () => {
                                 bg="#8ad8de"
                                 style={{ borderRadius: 16 }}
                                 hiddenFrom="md"
-                            />
+                            /> */}
 
                             <Image
                                 src={
@@ -159,7 +159,7 @@ const FooterPc: React.FC = () => {
                                 style={{ objectFit: "cover" }}
                             />
 
-                            <Grid
+                            {/* <Grid
                                 gutter={16}
                                 py={24}
                                 px={8}
@@ -175,7 +175,7 @@ const FooterPc: React.FC = () => {
                                     transform: "translateX(100%)",
                                 }}
                                 hiddenFrom="md"
-                            />
+                            /> */}
                         </Box>
                     </Grid.Col>
 

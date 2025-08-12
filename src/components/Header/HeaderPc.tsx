@@ -3,6 +3,7 @@ import { Button, Flex, Menu, useMantineTheme } from "@mantine/core";
 import { Link, useLocation } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
 import { IoIosArrowDown } from "react-icons/io";
+import { IconBrandLinkedinFilled, IconExternalLink } from "@tabler/icons-react";
 
 const HeaderPc: React.FC = () => {
     const { pathname } = useLocation();
@@ -150,8 +151,15 @@ const HeaderPc: React.FC = () => {
                 </Link>
 
                 {/* ────────── ブログ ────────── */}
-                <Link to="/blog" style={{ textDecoration: "none" }}>
-                    <h3
+                <a
+                    href="https://www.linkedin.com/in/%E7%A7%80%E6%A8%B9-%E9%AB%98%E6%A9%8B-9b1187102/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                >
+                    <Flex
+                        align="center"
+                        gap="0.2rem"
                         style={{
                             color: isActive("/blog")
                                 ? accentColor
@@ -170,9 +178,26 @@ const HeaderPc: React.FC = () => {
                                 : defaultColor)
                         }
                     >
-                        ブログ
-                    </h3>
-                </Link>
+                        <IconBrandLinkedinFilled
+                            size="1.5em"
+                            style={{ verticalAlign: "middle" }}
+                        />
+                        <h3
+                            style={{
+                                margin: 0,
+                                lineHeight: 1,
+                                display: "flex",
+                                alignItems: "center",
+                            }}
+                        >
+                            ブログ
+                        </h3>
+                        <IconExternalLink
+                            size="1em"
+                            style={{ verticalAlign: "middle" }}
+                        />
+                    </Flex>
+                </a>
 
                 {/* ────────── お問い合わせ ────────── */}
                 <Button

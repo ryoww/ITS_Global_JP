@@ -7,10 +7,12 @@ import {
     Flex,
     Image as MantineImage,
     NavLink,
+    rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Link, useLocation } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
+import { IconBrandLinkedin, IconExternalLink } from "@tabler/icons-react";
 
 /* ===== NavLink 共通スタイル ======================================== */
 /* NavLink 共通スタイル ------------------------------------------------ */
@@ -18,7 +20,7 @@ const navLinkStyles = (theme: any) => ({
     root: {
         padding: `0 ${theme.spacing.md}`,
         height: 48,
-        fontSize: theme.fontSizes.xl,
+        fontSize: "1.25rem",
         borderBottom: "1px solid #E5E7EB",
 
         /* ===== アクティブ行だけ上書き ===== */
@@ -153,6 +155,33 @@ const HeaderPhone: React.FC = () => {
                     onClick={close}
                     rightSection={null}
                     styles={navLinkStyles}
+                    color="orange"
+                />
+
+                <NavLink
+                    label="ブログ"
+                    component="a"
+                    href="https://www.linkedin.com/in/%E7%A7%80%E6%A8%B9-%E9%AB%98%E6%A9%8B-9b1187102/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={close}
+                    leftSection={
+                        <IconBrandLinkedin
+                            size="1.4em"
+                            style={{ verticalAlign: "middle" }}
+                        />
+                    }
+                    rightSection={
+                        <IconExternalLink
+                            size="1.2em"
+                            style={{ verticalAlign: "middle" }}
+                        />
+                    }
+                    styles={(theme) => ({
+                        ...navLinkStyles(theme),
+                        leftSection: { marginRight: 2 }, // ← 左アイコンと文字の距離
+                        rightSection: { marginLeft: 4 }, // ← 右アイコンと文字の距離
+                    })}
                     color="orange"
                 />
             </Drawer>

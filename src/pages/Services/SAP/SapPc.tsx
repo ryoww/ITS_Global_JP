@@ -14,7 +14,7 @@ type Props = {
 };
 
 const SapPc: React.FC<Props> = ({
-    title = "フラッターとハイブリッドのモバイル開発",
+    title = "SAPコンサルティングとERPの展開",
     ctaLabel = "お問い合わせ",
     bgSrc = "/service/SPA/service_4_sap_banner.png",
     height = 480,
@@ -45,12 +45,12 @@ const SapPc: React.FC<Props> = ({
                         maw={650}
                         align="flex-start"
                         gap="lg"
-                        pl={{ base: 8, md: 12 }}
+                        pl={{ base: 8, md: 5 }}
                     >
                         <Title
                             order={3}
                             fw={700}
-                            fz={{ base: 32, md: 48 }}
+                            fz={{ base: 32, md: 40 }}
                             c={"gray.0"}
                             ta="left"
                             style={{ letterSpacing: "0.03em", lineHeight: 1.2 }}
@@ -58,11 +58,11 @@ const SapPc: React.FC<Props> = ({
                             {title}
                         </Title>
 
-                        <Text fz={15} c="gray.0">
-                            物流および小売向けの DX ソリューションは、デジタル
-                            テクノロジーを使用して、物流および小売部門のビジネス
-                            プロセスを改善、最適化、変革するプロセスです。 DX
-                            は、企業の業務効率の向上、顧客エクスペリエンスの向上、市場での競争力の強化に役立ちます。
+                        <Text fz={15} c="gray.0" w={550}>
+                            SAP コンサルティングと ERP
+                            導入のプロセスは、企業がSAP ERP システム
+                            (エンタープライズ リソース プランニング)
+                            を適切に適用できるよう支援する一連のアクティビティです。
                         </Text>
 
                         <Button

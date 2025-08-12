@@ -20,10 +20,11 @@ const img = (p: string) => import.meta.env.BASE_URL + p;
 const SapAbapCaseStudy: React.FC = () => {
     return (
         <Box py={48}>
-            <Container size="lg" w="92%">
+            <Container size="lg" w={{ base: "98%", md: "92%" }}>
                 {/* 見出し */}
                 <Title
-                    order={1}
+                    // order={2}
+                    fz={{ base: 29, md: 40 }}
                     c="blue.8"
                     fw={900}
                     mb={28}
@@ -36,7 +37,10 @@ const SapAbapCaseStudy: React.FC = () => {
 
                 {/* 1. ヒーロー：左画像／右テキスト（概要・導入） */}
                 <Grid gutter={28} align="center">
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 1, md: 1 }}
+                    >
                         <Paper radius="lg" p={0} style={{ overflow: "hidden" }}>
                             <Image
                                 src={img(
@@ -52,7 +56,10 @@ const SapAbapCaseStudy: React.FC = () => {
                         </Paper>
                     </Grid.Col>
 
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 2, md: 2 }}
+                    >
                         <Stack gap={0}>
                             <Title order={3}>プロジェクト概要</Title>
                             <Text lh={1.9}>
@@ -81,7 +88,10 @@ const SapAbapCaseStudy: React.FC = () => {
 
                 {/* 2. 左テキスト（詳細）／右画像 */}
                 <Grid gutter={28} mt={36}>
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 2, md: 1 }}
+                    >
                         <Stack gap={0}>
                             <Title order={3}>プロジェクトの詳細</Title>
 
@@ -107,7 +117,10 @@ const SapAbapCaseStudy: React.FC = () => {
                         </Stack>
                     </Grid.Col>
 
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 1, md: 2 }}
+                    >
                         <Paper radius="lg" p={0} style={{ overflow: "hidden" }}>
                             <Image
                                 src={img(
@@ -126,7 +139,10 @@ const SapAbapCaseStudy: React.FC = () => {
 
                 {/* 3. 右テキスト（1～2の工程）／左画像 */}
                 <Grid gutter={28} mt={36} align="center">
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 1, md: 1 }}
+                    >
                         <Paper radius="lg" p={0} style={{ overflow: "hidden" }}>
                             <Image
                                 src={img(
@@ -142,7 +158,10 @@ const SapAbapCaseStudy: React.FC = () => {
                         </Paper>
                     </Grid.Col>
 
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 2, md: 2 }}
+                    >
                         <Stack gap="lg">
                             <div>
                                 <Title order={4}>1. 現状と要件を分析する</Title>
@@ -179,7 +198,10 @@ const SapAbapCaseStudy: React.FC = () => {
 
                 {/* 4. 左テキスト（3～5の工程）／右画像 */}
                 <Grid gutter={28} mt={36} align="center">
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 2, md: 1 }}
+                    >
                         <Stack gap="lg">
                             <div>
                                 <Title order={4}>3. デプロイとテスト</Title>
@@ -225,7 +247,10 @@ const SapAbapCaseStudy: React.FC = () => {
                         </Stack>
                     </Grid.Col>
 
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 1, md: 2 }}
+                    >
                         <Paper radius="lg" p={0} style={{ overflow: "hidden" }}>
                             <Image
                                 src={img(
@@ -244,7 +269,10 @@ const SapAbapCaseStudy: React.FC = () => {
 
                 {/* 5. レビュー & 結論 */}
                 <Grid gutter={28} mt={36} align="center">
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 1, md: 1 }}
+                    >
                         <Paper radius="lg" p={0} style={{ overflow: "hidden" }}>
                             <Image
                                 src={img(
@@ -260,7 +288,10 @@ const SapAbapCaseStudy: React.FC = () => {
                         </Paper>
                     </Grid.Col>
 
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 2, md: 2 }}
+                    >
                         <Stack gap="lg">
                             <div>
                                 <Title order={3}>お客様からのレビュー</Title>

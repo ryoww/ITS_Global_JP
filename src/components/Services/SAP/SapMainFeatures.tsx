@@ -57,6 +57,7 @@ const SapMainFeatures: React.FC = () => {
             <Container size="lg" w="92%">
                 <Title
                     order={1}
+                    fz={{ base: 32, md: 40 }}
                     ta="center"
                     c="blue.8"
                     fw={900}

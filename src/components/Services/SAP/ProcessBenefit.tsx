@@ -66,11 +66,14 @@ const ProcessBenefitSAP: React.FC<Props> = ({
     features = DEFAULT_FEATURES,
 }) => {
     return (
-        <Box py={56} mt={60} w={"100%"}>
+        <Box py={56} mt={30} w={"100%"}>
             <Container size="lg" w="95%">
                 <Grid gutter={45} align="center">
                     {/* 左：一枚画像 */}
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 1, md: 0 }}
+                    >
                         <Image
                             src={import.meta.env.BASE_URL + heroSrc}
                             alt=""
@@ -83,7 +86,10 @@ const ProcessBenefitSAP: React.FC<Props> = ({
                     </Grid.Col>
 
                     {/* 右：見出し＋リスト */}
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 0, md: 1 }}
+                    >
                         <Stack gap="md">
                             <Title
                                 order={1}

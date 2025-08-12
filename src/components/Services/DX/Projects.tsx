@@ -209,9 +209,10 @@ const ProjectBlock: React.FC<Project> = ({
 const LogisticsRetailProjects: React.FC = () => {
     return (
         <Box py={50} bg="white" mt={80}>
-            <Container size="lg" w="92%">
+            <Container size="lg" w={{ base: "98%", md: "92%" }}>
                 <Title
                     order={1}
+                    fz={{ base: 26, md: 36 }}
                     ta="center"
                     c="blue.8"
                     fw={900}

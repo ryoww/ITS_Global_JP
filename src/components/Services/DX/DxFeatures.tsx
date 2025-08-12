@@ -93,6 +93,7 @@ const RetailDxFeatures: React.FC = () => {
             <Container size="lg" w="92%">
                 <Title
                     order={1}
+                    fz={{ base: 28, md: 36 }}
                     ta="center"
                     c="blue.7"
                     fw={900}

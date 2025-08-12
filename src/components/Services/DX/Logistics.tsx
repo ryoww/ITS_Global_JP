@@ -69,7 +69,10 @@ const LogisticsRetailDX: React.FC<Props> = ({
             <Container size="lg" w="92%">
                 <Grid gutter={36} align="center">
                     {/* 左：一枚画像 */}
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 2, md: 1 }}
+                    >
                         <Image
                             src={import.meta.env.BASE_URL + heroSrc}
                             alt=""
@@ -82,7 +85,10 @@ const LogisticsRetailDX: React.FC<Props> = ({
                     </Grid.Col>
 
                     {/* 右：見出し＋リスト */}
-                    <Grid.Col span={{ base: 12, md: 6 }}>
+                    <Grid.Col
+                        span={{ base: 12, md: 6 }}
+                        order={{ base: 1, md: 2 }}
+                    >
                         <Stack gap="md">
                             <Title
                                 order={2}

@@ -87,7 +87,7 @@ const VisionMissionAndValues: React.FC = () => {
             </Box>
 
             {/* コアバリュー（SVG アイコン使用） */}
-            <Container size="lg" w="90%" py={36}>
+            <Container size="lg" w="90%" py={36} mx={"auto"}>
                 <Title
                     order={2}
                     ta="center"
@@ -108,6 +108,7 @@ const VisionMissionAndValues: React.FC = () => {
                             style={{ background: CARD_BG }}
                             w={305}
                             h={315}
+                            mx={"auto"}
                         >
                             <Stack gap="xs" c="white">
                                 <Center mb={6}>

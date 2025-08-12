@@ -14,7 +14,7 @@ const CeoMessage: React.FC = () => {
                             }
                             radius={8}
                             w="100%"
-                            h={520}
+                            h={"100%"}
                             fit="cover"
                         />
                     </Grid.Col>

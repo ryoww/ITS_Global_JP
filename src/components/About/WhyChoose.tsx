@@ -67,7 +67,7 @@ const WhyChooseITS: React.FC<Props> = () => {
                         <Title
                             order={2}
                             c="blue.8"
-                            fw={900}
+                            fw={{ base: 700, md: 900 }}
                             mb={24}
                             style={{ letterSpacing: "0.04em" }}
                         >

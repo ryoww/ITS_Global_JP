@@ -15,7 +15,7 @@ import {
 /**
  * 画像はすべて public 配下に配置してください。
  * 例）/service/SPA/service_4_practical_project_1.png */
-const img = (p: string) => import.meta.env.BASE_URL + p;
+const img = (p: string) => p;
 
 const SapAbapCaseStudy: React.FC = () => {
     return (

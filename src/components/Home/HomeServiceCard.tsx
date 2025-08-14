@@ -20,7 +20,7 @@ export const ServiceCard = ({
     description,
     to,
 }: ServiceCardProps) => {
-    const fullSrc = import.meta.env.BASE_URL + imgSrc;
+    const fullSrc = imgSrc;
 
     return (
         <Box

@@ -9,16 +9,12 @@ import ValuesCultureSection from "../../components/About/Fhoto";
 const AboutPhone: React.FC = () => {
     return (
         <>
-            <Image
-                w={"100%"}
-                h={"100%"}
-                src={import.meta.env.BASE_URL + "about/banner-about.jpg"}
-            />
+            <Image w={"100%"} h={"100%"} src={"/about/banner-about.jpg"} />
 
             <MetricsSection />
 
             <Image
-                src={import.meta.env.BASE_URL + "about/img_about1.png"}
+                src={"/about/img_about1.png"}
                 alt="ITS Global"
                 mt={30}
                 mx={"auto"}

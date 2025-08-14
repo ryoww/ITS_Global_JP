@@ -162,7 +162,7 @@ const OfficeMap: React.FC<OfficeMapProps> = ({
 }) => {
     const img = (
         <Image
-            src={import.meta.env.BASE_URL + mapSrc}
+            src={mapSrc}
             alt={`${city} の地図`}
             radius="md"
             w="100%"

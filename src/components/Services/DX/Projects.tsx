@@ -40,12 +40,12 @@ const PROJECTS: Project[] = [
             { label: "フォーム・開発期間", value: "プロジェクトベース・6か月" },
         ],
         processIcons: [
-            "service/flutter/service_1_mobile_application_1.png",
-            "service/flutter/service_1_mobile_application_2.png",
-            "service/flutter/service_1_mobile_application_3.png",
-            "service/flutter/service_1_mobile_application_4.png",
-            "service/flutter/service_1_mobile_application_5.png",
-            "service/flutter/service_1_mobile_application_6.png",
+            "/service/flutter/service_1_mobile_application_1.png",
+            "/service/flutter/service_1_mobile_application_2.png",
+            "/service/flutter/service_1_mobile_application_3.png",
+            "/service/flutter/service_1_mobile_application_4.png",
+            "/service/flutter/service_1_mobile_application_5.png",
+            "/service/flutter/service_1_mobile_application_6.png",
         ],
         hero: "/service/DX/service_3_actual_project_1.png",
     },
@@ -63,12 +63,12 @@ const PROJECTS: Project[] = [
             },
         ],
         processIcons: [
-            "service/flutter/service_1_mobile_application_1.png",
-            "service/flutter/service_1_mobile_application_2.png",
-            "service/flutter/service_1_mobile_application_3.png",
-            "service/flutter/service_1_mobile_application_4.png",
-            "service/flutter/service_1_mobile_application_5.png",
-            "service/flutter/service_1_mobile_application_6.png",
+            "/service/flutter/service_1_mobile_application_1.png",
+            "/service/flutter/service_1_mobile_application_2.png",
+            "/service/flutter/service_1_mobile_application_3.png",
+            "/service/flutter/service_1_mobile_application_4.png",
+            "/service/flutter/service_1_mobile_application_5.png",
+            "/service/flutter/service_1_mobile_application_6.png",
         ],
         hero: "/service/DX/service_3_actual_project_2.png",
         reverse: true, // 2段目は左右反転
@@ -84,12 +84,12 @@ const PROJECTS: Project[] = [
             { label: "フォーム・開発期間", value: "ラボ・1年（継続中）" },
         ],
         processIcons: [
-            "service/flutter/service_1_mobile_application_1.png",
-            "service/flutter/service_1_mobile_application_2.png",
-            "service/flutter/service_1_mobile_application_3.png",
-            "service/flutter/service_1_mobile_application_4.png",
-            "service/flutter/service_1_mobile_application_5.png",
-            "service/flutter/service_1_mobile_application_6.png",
+            "/service/flutter/service_1_mobile_application_1.png",
+            "/service/flutter/service_1_mobile_application_2.png",
+            "/service/flutter/service_1_mobile_application_3.png",
+            "/service/flutter/service_1_mobile_application_4.png",
+            "/service/flutter/service_1_mobile_application_5.png",
+            "/service/flutter/service_1_mobile_application_6.png",
         ],
         hero: "/service/DX/service_3_actual_project_3.png",
     },
@@ -128,7 +128,7 @@ const ProcessRow: React.FC<{ icons: string[] }> = ({ icons }) => (
             {icons.map((src, i) => (
                 <Image
                     key={i}
-                    src={import.meta.env.BASE_URL + src}
+                    src={src}
                     alt=""
                     w={50}
                     h={50}
@@ -168,7 +168,7 @@ const ProjectBlock: React.FC<Project> = ({
                     }}
                 >
                     <Image
-                        src={import.meta.env.BASE_URL + hero}
+                        src={hero}
                         alt=""
                         radius="lg"
                         w="100%"

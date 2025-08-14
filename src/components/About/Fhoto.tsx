@@ -14,9 +14,9 @@ type Props = {
 };
 
 const ValuesCultureSection: React.FC<Props> = ({
-    main = "about/team1.png",
-    sideTop = "about/team2.png",
-    sideBottom = "about/team3.png",
+    main = "/about/team1.png",
+    sideTop = "/about/team2.png",
+    sideBottom = "/about/team3.png",
     isPhone = useResponsive().isPhone,
 }) => {
     return (
@@ -43,7 +43,7 @@ const ValuesCultureSection: React.FC<Props> = ({
                     /* ＝＝＝ Phone: 1列（Stackで縦積み）＝＝＝ */
                     <Stack gap={16}>
                         <Image
-                            src={import.meta.env.BASE_URL + main}
+                            src={main}
                             radius={18}
                             w="100%"
                             h="100%"
@@ -51,7 +51,7 @@ const ValuesCultureSection: React.FC<Props> = ({
                             alt=""
                         />
                         <Image
-                            src={import.meta.env.BASE_URL + sideTop}
+                            src={sideTop}
                             radius={18}
                             w="100%"
                             h="100%"
@@ -59,7 +59,7 @@ const ValuesCultureSection: React.FC<Props> = ({
                             alt=""
                         />
                         <Image
-                            src={import.meta.env.BASE_URL + sideBottom}
+                            src={sideBottom}
                             radius={18}
                             w="100%"
                             h="100%"
@@ -73,7 +73,7 @@ const ValuesCultureSection: React.FC<Props> = ({
                         {/* 左：大きい画像（mdで8） */}
                         <Grid.Col span={{ base: 12, md: 8 }}>
                             <Image
-                                src={import.meta.env.BASE_URL + main}
+                                src={main}
                                 radius={18}
                                 w="100%"
                                 h={{ base: 260, md: 420 }}
@@ -86,7 +86,7 @@ const ValuesCultureSection: React.FC<Props> = ({
                         <Grid.Col span={{ base: 12, md: 4 }}>
                             <Stack gap={24} h="100%" justify="space-between">
                                 <Image
-                                    src={import.meta.env.BASE_URL + sideTop}
+                                    src={sideTop}
                                     radius={18}
                                     w="100%"
                                     h={{ base: 200, md: 198 }}
@@ -94,7 +94,7 @@ const ValuesCultureSection: React.FC<Props> = ({
                                     alt=""
                                 />
                                 <Image
-                                    src={import.meta.env.BASE_URL + sideBottom}
+                                    src={sideBottom}
                                     radius={18}
                                     w="100%"
                                     h={{ base: 200, md: 198 }}
@@ -108,7 +108,7 @@ const ValuesCultureSection: React.FC<Props> = ({
 
                 {/* 下の1枚はスマホで全幅、md+で固定幅 */}
                 <Image
-                    src={import.meta.env.BASE_URL + "about/team4.png"}
+                    src={"/about/team4.png"}
                     mt={24}
                     w={isPhone ? "100%" : 680}
                     mx="auto"

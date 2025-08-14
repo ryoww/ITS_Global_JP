@@ -21,37 +21,37 @@ type Step = {
 
 const STEPS: Step[] = [
     {
-        img: "service/flutter/service_1_mobile_application_1.png",
+        img: "/service/flutter/service_1_mobile_application_1.png",
         title: "調査と要件を収集する",
         body: "アイデアを製品にするには、ニーズを正確に理解することが重要です。まずは、やりたいことを教えてください。",
         color: "#1565c0",
     },
     {
-        img: "service/flutter/service_1_mobile_application_2.png",
+        img: "/service/flutter/service_1_mobile_application_2.png",
         title: "プロジェクトの計画",
         body: "開発スケジュール・必要なリソース・予算を決定し、主要機能・ビジネスプロセス・技術要件などアプリの機能要件リストを作成します。",
         color: "#00838f",
     },
     {
-        img: "service/flutter/service_1_mobile_application_3.png",
+        img: "/service/flutter/service_1_mobile_application_3.png",
         title: "ユニークなデザインそしてカスタマイズ",
         body: "すべてのビジネスはユニーク。価値観とスタイルを正確に反映する、特徴的なカスタマイズデザインを作成します。",
         color: "#00695c",
     },
     {
-        img: "service/flutter/service_1_mobile_application_4.png",
+        img: "/service/flutter/service_1_mobile_application_4.png",
         title: "アプリの開発とテスト",
         body: "Flutter / ハイブリッド技術で開発し、iOS と Android の両方で動作。機能・UI・性能・セキュリティまで包括的にテストします。",
         color: "#2e7d32",
     },
     {
-        img: "service/flutter/service_1_mobile_application_5.png",
+        img: "/service/flutter/service_1_mobile_application_5.png",
         title: "アプリストアへのリリース",
         body: "全工程完了後、Google Play や Apple ストアなどのアプリストアに公開します。",
         color: "#ef6c00",
     },
     {
-        img: "service/flutter/service_1_mobile_application_6.png",
+        img: "/service/flutter/service_1_mobile_application_6.png",
         title: "サポートとメンテナンス",
         body: "継続的な技術サポートで発生した問題を迅速に解決。定期的なメンテとアップデートで安定運用・性能・セキュリティを確保します。",
         color: "#c62828",
@@ -95,7 +95,7 @@ const MobileProcess: React.FC = () => {
                             <Stack align="center" gap={10}>
                                 {/* 丸枠＋番号＋ピクトの図は 1 枚画像 */}
                                 <Image
-                                    src={import.meta.env.BASE_URL + s.img}
+                                    src={s.img}
                                     alt=""
                                     w={{ base: 200, md: 150 }}
                                     h={{ base: 200, md: 150 }}

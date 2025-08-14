@@ -24,7 +24,7 @@ const Header: React.FC = () => {
                 >
                     <Link to="/">
                         <Image
-                            src={import.meta.env.BASE_URL + "logo.png"}
+                            src={"/logo.png"}
                             alt="Logo"
                             width={65}
                             height={65}

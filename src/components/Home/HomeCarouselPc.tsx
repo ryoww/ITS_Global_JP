@@ -102,12 +102,6 @@ const HomeCarousel: React.FC = () => {
     const [embla, setEmbla] = useState<EmblaCarouselType | null>(null);
     const [active, setActive] = useState(0);
 
-    /* public パスを環境ごとに解決 */
-    const resolveSrc = (relativePath: string) => {
-        const base = import.meta.env.BASE_URL || "/";
-        return `${base.replace(/\/$/, "")}/${relativePath.replace(/^\//, "")}`;
-    };
-
     return (
         <Box style={{ position: "relative" }}>
             <Carousel
@@ -127,7 +121,7 @@ const HomeCarousel: React.FC = () => {
                     >
                         <Box style={{ position: "relative", height: "100%" }}>
                             <Image
-                                src={resolveSrc(slide.image)}
+                                src={slide.image}
                                 alt={slide.title}
                                 fit="cover"
                                 height="100%"

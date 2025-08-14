@@ -71,7 +71,7 @@ const HeaderPhone: React.FC = () => {
                     <Flex m={0} p={0} w="100%" h={70}>
                         <Link to="/" onClick={close}>
                             <MantineImage
-                                src={import.meta.env.BASE_URL + "logo.png"}
+                                src={"/logo.png"}
                                 alt="Logo"
                                 w={135.5}
                                 h={65}

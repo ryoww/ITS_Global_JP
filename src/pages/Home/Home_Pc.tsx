@@ -133,7 +133,7 @@ const HomePc: React.FC = () => {
                     </Container>
 
                     <Image
-                        src={import.meta.env.BASE_URL + "home/its1.png"}
+                        src={"/home/its1.png"}
                         mt={50}
                         w={"50%"}
                         h={"100%"}

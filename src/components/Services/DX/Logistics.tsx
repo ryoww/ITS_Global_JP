@@ -60,7 +60,7 @@ const DEFAULT_FEATURES: Feature[] = [
 ];
 
 const LogisticsRetailDX: React.FC<Props> = ({
-    heroSrc = "service/DX/service_3_img.png",
+    heroSrc = "/service/DX/service_3_img.png",
     heading = "ITS Globalにおける物流および小売業向けのDXソリューションのメリット",
     features = DEFAULT_FEATURES,
 }) => {
@@ -74,7 +74,7 @@ const LogisticsRetailDX: React.FC<Props> = ({
                         order={{ base: 2, md: 1 }}
                     >
                         <Image
-                            src={import.meta.env.BASE_URL + heroSrc}
+                            src={heroSrc}
                             alt=""
                             radius={8}
                             w="100%"

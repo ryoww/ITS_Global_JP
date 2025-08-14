@@ -115,7 +115,7 @@ const HomePhone: React.FC = () => {
             </Stack>
 
             <Image
-                src={import.meta.env.BASE_URL + "home/its1.png"}
+                src={"/home/its1.png"}
                 mt={50}
                 w={"90%"}
                 h={"100%"}

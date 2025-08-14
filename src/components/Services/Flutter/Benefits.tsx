@@ -20,25 +20,25 @@ type Item = {
 
 const ITEMS: Item[] = [
     {
-        icon: "service/flutter/service_1_advantages_1.png",
+        icon: "/service/flutter/service_1_advantages_1.png",
         badgeGradient: "linear-gradient(135deg,#15c1cf,#0a74b7)",
         title: "時間とコストを節約",
         body: "iOS と Android の両方で単一のソースコードから開発することで、時間とコストを節約できます。",
     },
     {
-        icon: "service/flutter/service_1_advantages_2.png",
+        icon: "/service/flutter/service_1_advantages_2.png",
         badgeGradient: "linear-gradient(135deg,#ffa63b,#ff7a00)",
         title: "インターフェイスは美しく、一貫性があります",
         body: "フラッターとハイブリッドで開発されたアプリはプラットフォーム間で一貫した魅力的な UI を備え、ユーザーに良い印象を与えます。",
     },
     {
-        icon: "service/flutter/service_1_advantages_3.png",
+        icon: "/service/flutter/service_1_advantages_3.png",
         badgeGradient: "linear-gradient(135deg,#15c1cf,#0a74b7)",
         title: "柔軟性",
         body: "変更と更新を迅速に簡単に統合します。",
     },
     {
-        icon: "service/flutter/service_1_advantages_4.png",
+        icon: "/service/flutter/service_1_advantages_4.png",
         badgeGradient: "linear-gradient(135deg,#ffa63b,#ff7a00)",
         title: "マルチプラットフォームアクセス",
         body: "1 つのアプリケーションでさまざまなプラットフォーム上のユーザーに簡単にアクセスできます。",
@@ -95,13 +95,7 @@ const BenefitCard: React.FC<Item> = ({ icon, title, body }) => {
                     placeItems: "center",
                 }}
             >
-                <Image
-                    src={import.meta.env.BASE_URL + icon}
-                    alt=""
-                    w={70}
-                    h={70}
-                    fit="contain"
-                />
+                <Image src={icon} alt="" w={70} h={70} fit="contain" />
             </Box>
 
             <Stack gap={10} ta="center">

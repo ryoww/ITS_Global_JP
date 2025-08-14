@@ -112,10 +112,7 @@ const WhyChooseITS: React.FC<Props> = () => {
                         h={"100%"}
                     >
                         <Image
-                            src={
-                                import.meta.env.BASE_URL +
-                                "about/banner_choose_its.png"
-                            }
+                            src={"/about/banner_choose_its.png"}
                             radius={24}
                             w="100%"
                             fit="cover"

@@ -20,7 +20,7 @@ export const TestimonialCard = ({ logo, company, message }: Testimonial) => (
         {/* ロゴ + 社名 */}
         <Group align="center" mb={24}>
             <Image
-                src={import.meta.env.BASE_URL + logo}
+                src={logo}
                 w={64}
                 h={64}
                 // radius="50%"

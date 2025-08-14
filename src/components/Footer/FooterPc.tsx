@@ -154,10 +154,7 @@ const FooterPc: React.FC = () => {
                             /> */}
 
                             <Image
-                                src={
-                                    import.meta.env.BASE_URL +
-                                    "footer/img-contact.jpg"
-                                }
+                                src={"/footer/img-contact.jpg"}
                                 w="100%"
                                 h={450}
                                 radius={24}
@@ -348,7 +345,7 @@ const FooterPc: React.FC = () => {
                 >
                     <Box w={"25%"} c={"white"}>
                         <Image
-                            src={import.meta.env.BASE_URL + "logo-ft.svg"}
+                            src={"/logo-ft.svg"}
                             // mx={"auto"}
                             ml={40}
                             w={300}

@@ -86,7 +86,7 @@ export const CompanyCarousel = () => {
                             {group.map((src) => (
                                 <Center key={src} h={70}>
                                     <Image
-                                        src={import.meta.env.BASE_URL + src}
+                                        src={src}
                                         w={{ base: 180, md: 350 }}
                                         h={70}
                                         fit="contain"

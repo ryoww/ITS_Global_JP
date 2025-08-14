@@ -342,9 +342,8 @@ const PhoneHero = ({
 const Contact: React.FC = () => {
     const { classes } = useCardStyles();
     const { isPhone } = useResponsive();
-    const bannerSrcDesktop =
-        import.meta.env.BASE_URL + "contact/banner-contact.png";
-    const bannerSrcPhone = import.meta.env.BASE_URL + "contact/bg-contact.png";
+    const bannerSrcDesktop = "/contact/banner-contact.png";
+    const bannerSrcPhone = "/contact/bg-contact.png";
 
     return isPhone ? (
         <PhoneHero bannerSrc={bannerSrcPhone} classes={classes} />

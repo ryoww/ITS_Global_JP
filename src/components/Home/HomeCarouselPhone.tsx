@@ -93,7 +93,7 @@ const HomeCarouselPhone: React.FC = () => {
                 onMouseLeave={() => autoplay.current.play()}
             >
                 {slides.map((slide) => {
-                    const bg = `url(${resolveSrc(slide.image)})`;
+                    const bg = `url(${slide.image})`;
                     return (
                         <Carousel.Slide
                             key={slide.image}

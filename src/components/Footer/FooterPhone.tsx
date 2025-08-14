@@ -140,10 +140,7 @@ const FoooterPhone: React.FC = () => {
                     >
                         <Box pos="relative">
                             <Image
-                                src={
-                                    import.meta.env.BASE_URL +
-                                    "footer/img-contact.jpg"
-                                }
+                                src={"/footer/img-contact.jpg"}
                                 w="100%"
                                 h="100%"
                                 radius={24}
@@ -309,7 +306,7 @@ const FoooterPhone: React.FC = () => {
 
             <Box w={"100%"} h={"100%"} bg={"blue.9"} pb={20}>
                 <Image
-                    src={import.meta.env.BASE_URL + "logo-ft.svg"}
+                    src={"/logo-ft.svg"}
                     mx={"auto"}
                     w={210}
                     py={40}

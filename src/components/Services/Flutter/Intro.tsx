@@ -18,7 +18,7 @@ type Props = {
 };
 
 const FlutterIntro: React.FC<Props> = ({
-    imageSrc = "service/flutter/service_1_about.png",
+    imageSrc = "/service/flutter/service_1_about.png",
 }) => {
     return (
         <Box py={48}>
@@ -69,7 +69,7 @@ const FlutterIntro: React.FC<Props> = ({
                     {/* 右：画像のみ */}
                     <Grid.Col span={{ base: 12, md: 6 }}>
                         <Image
-                            src={import.meta.env.BASE_URL + imageSrc}
+                            src={imageSrc}
                             alt=""
                             radius={20}
                             w="100%"

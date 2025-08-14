@@ -10,10 +10,7 @@ const AboutPc: React.FC = () => {
     return (
         <>
             <Stack w={"100%"} h={"100%"} justify="center" align="center">
-                <Image
-                    src={import.meta.env.BASE_URL + "about/banner-about.jpg"}
-                    alt="About Banner"
-                />
+                <Image src={"/about/banner-about.jpg"} alt="About Banner" />
 
                 <Flex w={"85%"} h={"100%"} mt={80}>
                     <Box w={"50%"}>
@@ -21,10 +18,7 @@ const AboutPc: React.FC = () => {
                     </Box>
                     <Box w={"50%"}>
                         <Image
-                            src={
-                                import.meta.env.BASE_URL +
-                                "about/img_about1.png"
-                            }
+                            src={"/about/img_about1.png"}
                             alt="ITS Global"
                             h={"100%"}
                         />

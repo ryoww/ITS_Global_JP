@@ -4,6 +4,7 @@ import {
     Box,
     Button,
     Checkbox,
+    Flex,
     Grid,
     Group,
     Image,
@@ -17,6 +18,8 @@ import {
 import { useForm } from "@mantine/form";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+import { UnderlineLabel } from "./UnderlineLabel";
+import { Link } from "react-router-dom";
 
 const FooterPc: React.FC = () => {
     // reCAPTCHA v2 Invisible
@@ -332,6 +335,61 @@ const FooterPc: React.FC = () => {
                         </form>
                     </Grid.Col>
                 </Grid>
+            </Box>
+
+            <Box w={"100%"} h={"100%"} bg={"blue.9"} pb={20}>
+                <Flex align={"flex-start"} justify={"flex-start"}>
+                    <Box w={"30%"} c={"white"}>
+                        <Image
+                            src={import.meta.env.BASE_URL + "/logo-ft.svg"}
+                            // mx={"auto"}
+                            ml={40}
+                            w={210}
+                            py={40}
+                            mt={20}
+                        />
+                    </Box>
+                    <Box w={"70%"} mx={"auto"} c={"white"} mt={40}>
+                        <Flex></Flex>
+                        <Box>
+                            <UnderlineLabel>サービス</UnderlineLabel>
+                            <Box
+                                component={Link}
+                                to="/services/flutter-and-hybrid"
+                                c={"white"}
+                                style={{ textDecoration: "none" }}
+                            >
+                                <Text mt={5}>モバイルアプリケーション開発</Text>
+                            </Box>
+
+                            <Box
+                                component={Link}
+                                to="/services/dx-solution"
+                                c={"white"}
+                                style={{ textDecoration: "none" }}
+                            >
+                                <Text mt={5}>DXソリューション</Text>
+                            </Box>
+                            <Box
+                                component={Link}
+                                to="/services/dx-solution"
+                                c={"white"}
+                                style={{ textDecoration: "none" }}
+                            >
+                                <Text mt={5}>SAPコンサルティングとERP導入</Text>
+                            </Box>
+                        </Box>
+                    </Box>
+                </Flex>
+                <Text
+                    ta="center"
+                    size="sm"
+                    mt={20}
+                    c={"white"}
+                    style={{ letterSpacing: "0.05em" }}
+                >
+                    ©ITS GLOBAL. All rights reserved
+                </Text>
             </Box>
         </>
     );

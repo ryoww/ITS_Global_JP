@@ -343,6 +343,36 @@ const FoooterPhone: React.FC = () => {
                         <Text mt={5}>SAPコンサルティングとERP導入</Text>
                     </Box>
                 </Box>
+
+                <Box w={"90%"} mx={"auto"} c={"white"} mt={20}>
+                    <UnderlineLabel>サービス</UnderlineLabel>
+                    <Box
+                        component={Link}
+                        to="/services/flutter-and-hybrid"
+                        c={"white"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Text mt={5}>モバイルアプリケーション開発</Text>
+                    </Box>
+
+                    <Box
+                        component={Link}
+                        to="/services/dx-solution"
+                        c={"white"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Text mt={5}>DXソリューション</Text>
+                    </Box>
+                    <Box
+                        component={Link}
+                        to="/services/dx-solution"
+                        c={"white"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Text mt={5}>SAPコンサルティングとERP導入</Text>
+                    </Box>
+                </Box>
+
                 <Box
                     mt={40}
                     px="lg"

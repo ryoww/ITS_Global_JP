@@ -14,9 +14,9 @@ type Props = {
 };
 
 const ValuesCultureSection: React.FC<Props> = ({
-    main = "/about/team1.png",
-    sideTop = "/about/team2.png",
-    sideBottom = "/about/team3.png",
+    main = "about/team1.png",
+    sideTop = "about/team2.png",
+    sideBottom = "about/team3.png",
     isPhone = useResponsive().isPhone,
 }) => {
     return (
@@ -108,7 +108,7 @@ const ValuesCultureSection: React.FC<Props> = ({
 
                 {/* 下の1枚はスマホで全幅、md+で固定幅 */}
                 <Image
-                    src={import.meta.env.BASE_URL + "/about/team4.png"}
+                    src={import.meta.env.BASE_URL + "about/team4.png"}
                     mt={24}
                     w={isPhone ? "100%" : 680}
                     mx="auto"

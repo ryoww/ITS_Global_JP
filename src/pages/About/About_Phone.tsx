@@ -12,13 +12,13 @@ const AboutPhone: React.FC = () => {
             <Image
                 w={"100%"}
                 h={"100%"}
-                src={import.meta.env.BASE_URL + "/about/banner-about.jpg"}
+                src={import.meta.env.BASE_URL + "about/banner-about.jpg"}
             />
 
             <MetricsSection />
 
             <Image
-                src={import.meta.env.BASE_URL + "/about/img_about1.png"}
+                src={import.meta.env.BASE_URL + "about/img_about1.png"}
                 alt="ITS Global"
                 mt={30}
                 mx={"auto"}

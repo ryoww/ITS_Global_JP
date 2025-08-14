@@ -28,23 +28,23 @@ type Props = {
 const rowsDefault: Row[] = [
     {
         label: "オペレーティング・システム",
-        src: "/service/flutter/service_1_compatibility_technology_1.png",
+        src: "service/flutter/service_1_compatibility_technology_1.png",
     },
     {
         label: "プログラミング言語",
-        src: "/service/flutter/service_1_compatibility_technology_2.png",
+        src: "service/flutter/service_1_compatibility_technology_2.png",
     },
     {
         label: "フレームワーク",
-        src: "/service/flutter/service_1_compatibility_technology_3.png",
+        src: "service/flutter/service_1_compatibility_technology_3.png",
     },
     {
         label: "データベース",
-        src: "/service/flutter/service_1_compatibility_technology_4.png",
+        src: "service/flutter/service_1_compatibility_technology_4.png",
     },
     {
         label: "プラットホーム",
-        src: "/service/flutter/service_1_compatibility_technology_5.png",
+        src: "service/flutter/service_1_compatibility_technology_5.png",
     },
 ];
 

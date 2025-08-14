@@ -37,33 +37,33 @@ type Props = {
 /* 例：画像パスは手元のファイルに合わせて変更してください */
 const SAMPLE_ITEMS: Project[] = [
     {
-        src: "/service/flutter/service_1_actual_project_1.png",
+        src: "service/flutter/service_1_actual_project_1.png",
         label: "駐車場検索アプリ",
     },
     {
-        src: "/service/flutter/service_1_actual_project_3.png",
+        src: "service/flutter/service_1_actual_project_3.png",
         label: "外国人生活支援アプリ",
     },
     {
-        src: "/service/flutter/service_1_actual_project_5.png",
+        src: "service/flutter/service_1_actual_project_5.png",
         label: "サロン予約アプリ",
     },
     {
-        src: "/service/flutter/service_1_actual_project_2.png",
+        src: "service/flutter/service_1_actual_project_2.png",
         label: "検索と購入アプリ",
     },
     {
-        src: "/service/flutter/service_1_actual_project_4.png",
+        src: "service/flutter/service_1_actual_project_4.png",
         label: "荷物追跡アプリ",
     },
     {
-        src: "/service/flutter/service_1_actual_project_6.png",
+        src: "service/flutter/service_1_actual_project_6.png",
         label: "海外の美味しいレストラン検索アプリ",
     },
 ];
 
 const ProjectsShowcase: React.FC<Props> = ({
-    bgSrc = "/service/flutter/service_1_actual_project_banner.png",
+    bgSrc = "service/flutter/service_1_actual_project_banner.png",
     heading = "実際のプロジェクト",
     items = SAMPLE_ITEMS,
     isPhone = false, // ← 親から来ない場合はfalse

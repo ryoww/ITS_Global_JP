@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
-import App from "./App.tsx";
+import App from "./App";
 
 const jpStack =
     '"Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Sans", "Meiryo", sans-serif';
@@ -13,7 +13,7 @@ const headingStack = '"Poppins", ' + jpStack;
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <BrowserRouter basename="/its/">
+        <BrowserRouter>
             <MantineProvider
                 withCssVariables
                 theme={{

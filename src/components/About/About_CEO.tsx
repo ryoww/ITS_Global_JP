@@ -9,9 +9,7 @@ const CeoMessage: React.FC = () => {
                     {/* 左：写真 */}
                     <Grid.Col span={{ base: 12, md: 6 }}>
                         <Image
-                            src={
-                                import.meta.env.BASE_URL + "/about/img_ceo.jpg"
-                            }
+                            src={import.meta.env.BASE_URL + "about/img_ceo.jpg"}
                             radius={8}
                             w="100%"
                             h={"100%"}

@@ -11,7 +11,7 @@ const AboutPc: React.FC = () => {
         <>
             <Stack w={"100%"} h={"100%"} justify="center" align="center">
                 <Image
-                    src={import.meta.env.BASE_URL + "/about/banner-about.jpg"}
+                    src={import.meta.env.BASE_URL + "about/banner-about.jpg"}
                     alt="About Banner"
                 />
 
@@ -23,7 +23,7 @@ const AboutPc: React.FC = () => {
                         <Image
                             src={
                                 import.meta.env.BASE_URL +
-                                "/about/img_about1.png"
+                                "about/img_about1.png"
                             }
                             alt="ITS Global"
                             h={"100%"}

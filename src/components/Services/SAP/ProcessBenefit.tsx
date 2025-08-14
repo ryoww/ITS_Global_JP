@@ -61,7 +61,7 @@ const DEFAULT_FEATURES: Feature[] = [
 ];
 
 const ProcessBenefitSAP: React.FC<Props> = ({
-    heroSrc = "/service/SPA/service_4_sap.png",
+    heroSrc = "service/SPA/service_4_sap.png",
     heading = "ITS GLOBALにおける SAP および ERP コンサルティングと導入プロセスのメリット",
     features = DEFAULT_FEATURES,
 }) => {

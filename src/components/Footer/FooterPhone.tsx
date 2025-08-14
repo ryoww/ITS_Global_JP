@@ -343,6 +343,28 @@ const FoooterPhone: React.FC = () => {
                         <Text mt={5}>SAPコンサルティングとERP導入</Text>
                     </Box>
                 </Box>
+
+                <Box w={"90%"} mx={"auto"} c={"white"} mt={20}>
+                    <UnderlineLabel>会社</UnderlineLabel>
+                    <Box
+                        component={Link}
+                        to="/about"
+                        c={"white"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Text mt={5}>会社情報</Text>
+                    </Box>
+
+                    <Box
+                        component={Link}
+                        to="/contact"
+                        c={"white"}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Text mt={5}>お問い合わせ</Text>
+                    </Box>
+                </Box>
+
                 <Box
                     mt={40}
                     px="lg"
@@ -356,7 +378,7 @@ const FoooterPhone: React.FC = () => {
                         // borderBlock: "1px solid var(--mantine-color-gray-3)",
                     }}
                 >
-                    <Box w={"90%"}>
+                    <Box w={"100%"}>
                         <OfficeCard
                             country="VN"
                             city="ハノイ"

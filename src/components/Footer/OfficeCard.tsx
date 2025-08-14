@@ -33,14 +33,10 @@ type OfficeCardProps = {
     mapTarget?: "_blank" | "_self" | "_parent" | "_top";
 };
 
-/* ───────────────── 旗バッジ ─────────────────
-   日本:   白地 + 小さめ赤丸
-   ベトナム: 白丸 → 赤丸 → 黄色い星
------------------------------------------------- */
+/* ─────────────── 旗バッジ ─────────────── */
 const FlagBadge: React.FC<{
     country: Country;
     size?: number;
-    /** 日本の赤丸半径係数（s * jpScale） */
     jpScale?: number;
 }> = ({ country, size = 38, jpScale = 0.22 }) => {
     const s = size;
@@ -48,7 +44,6 @@ const FlagBadge: React.FC<{
     const cy = s / 2;
 
     if (country === "JP") {
-        // 日本（白地に赤丸）
         return (
             <svg
                 width={s}
@@ -62,13 +57,12 @@ const FlagBadge: React.FC<{
         );
     }
 
-    // ベトナム（白丸 → 赤丸 → 黄色い星）
-    const redR = s * 0.37; // 白縁が残るサイズ
-    const starOuter = s * 0.23; // 星の外半径
-    const starInner = s * 0.1; // 星の内半径
+    const redR = s * 0.37;
+    const starOuter = s * 0.23;
+    const starInner = s * 0.1;
     const points = Array.from({ length: 10 })
         .map((_, i) => {
-            const angle = -Math.PI / 2 + (i * Math.PI) / 5; // 上向きから開始
+            const angle = -Math.PI / 2 + (i * Math.PI) / 5;
             const r = i % 2 === 0 ? starOuter : starInner;
             return `${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`;
         })
@@ -88,101 +82,179 @@ const FlagBadge: React.FC<{
     );
 };
 
-/* ───────────────── 本体 ───────────────── */
+/* ─────────────── 情報コンポーネント ─────────────── */
+type OfficeInfoProps = {
+    country: Country;
+    city: string;
+    address: string;
+    phone: string;
+};
+
+const OfficeInfo: React.FC<OfficeInfoProps> = ({
+    country,
+    city,
+    address,
+    phone,
+}) => {
+    return (
+        <Stack gap="md" style={{ minWidth: 0 /* Flex子のはみ出し防止 */ }}>
+            <Group
+                align="center"
+                gap="sm"
+                wrap="nowrap"
+                style={{ minWidth: 0 }}
+            >
+                <FlagBadge country={country} size={42} />
+                <Text fz={28} fw={700} lh={1} c="white">
+                    {city}
+                </Text>
+            </Group>
+
+            {/* 住所 */}
+            <Flex gap={12} align="flex-start" style={{ minWidth: 0 }}>
+                <ThemeIcon radius="xl" size={28} variant="subtle" color="white">
+                    <IconMapPin size={18} />
+                </ThemeIcon>
+                <Text
+                    fz="md"
+                    lh={1.6}
+                    c="white"
+                    style={{
+                        whiteSpace: "pre-wrap",
+                        overflowWrap: "anywhere",
+                        minWidth: 0,
+                    }}
+                >
+                    {address}
+                </Text>
+            </Flex>
+
+            {/* 電話 */}
+            <Flex gap={12} align="flex-start" style={{ minWidth: 0 }}>
+                <ThemeIcon radius="xl" size={28} variant="subtle" color="white">
+                    <IconPhone size={18} />
+                </ThemeIcon>
+                <Text
+                    fz="md"
+                    c="white"
+                    style={{ overflowWrap: "anywhere", minWidth: 0 }}
+                >
+                    {phone}
+                </Text>
+            </Flex>
+        </Stack>
+    );
+};
+
+/* ─────────────── 地図コンポーネント ─────────────── */
+type OfficeMapProps = {
+    city: string;
+    mapSrc: string;
+    to?: string;
+    mapTarget?: "_blank" | "_self" | "_parent" | "_top";
+};
+
+const OfficeMap: React.FC<OfficeMapProps> = ({
+    city,
+    mapSrc,
+    to,
+    mapTarget = "_blank",
+}) => {
+    const img = (
+        <Image
+            src={import.meta.env.BASE_URL + mapSrc}
+            alt={`${city} の地図`}
+            radius="md"
+            w="100%"
+            fit="cover"
+            style={{
+                display: "block",
+                aspectRatio: "16 / 9",
+                objectFit: "cover",
+            }}
+        />
+    );
+
+    return to ? (
+        <Box
+            component="a"
+            href={to}
+            target={mapTarget}
+            rel={mapTarget === "_blank" ? "noopener noreferrer" : undefined}
+            style={{ display: "inline-block", lineHeight: 0, width: "100%" }}
+            aria-label={`${city} の地図を開く`}
+        >
+            {img}
+        </Box>
+    ) : (
+        <Box>{img}</Box>
+    );
+};
+
+/* ─────────────── 本体（Flex レイアウト） ─────────────── */
 const OfficeCard: React.FC<OfficeCardProps> = ({
     country,
     city,
     address,
     phone,
     mapSrc,
-    width = 360,
+    width = "100%", // レイアウト崩れを避けるため既定を 100% に
     withBorder = false,
     to,
     mapTarget = "_blank",
 }) => {
-    const mapImg = (
-        <Image
-            src={import.meta.env.BASE_URL + mapSrc}
-            alt={`${city} の地図`}
-            radius="md"
-            w={200}
-            h={120}
-            fit="cover"
-            style={{ display: "block" }}
-        />
-    );
-
     return (
         <Card
             withBorder={withBorder}
             radius="lg"
             p="lg"
-            style={{ width, background: "transparent" }} // 背景は透明
+            w={width}
+            style={{ background: "transparent" }}
         >
-            <Stack gap="md">
-                {/* 見出し（旗 + 都市名） */}
-                <Group align="center" gap="sm">
-                    <FlagBadge country={country} size={42} />
-                    <Text fz={28} fw={700} lh={1} c="white">
-                        {city}
-                    </Text>
-                </Group>
-
-                {/* 住所 */}
-                <Flex gap={12}>
-                    <ThemeIcon
-                        radius="xl"
-                        size={28}
-                        variant="subtle"
-                        color="white"
-                    >
-                        <IconMapPin size={18} />
-                    </ThemeIcon>
-                    <Text fz="md" lh={1.6} c="white">
-                        {address}
-                    </Text>
-                </Flex>
-
-                {/* 電話 */}
-                <Flex gap={12}>
-                    <ThemeIcon
-                        radius="xl"
-                        size={28}
-                        variant="subtle"
-                        color="white"
-                    >
-                        <IconPhone size={18} />
-                    </ThemeIcon>
-                    <Text fz="md" c="white">
-                        {phone}
-                    </Text>
-                </Flex>
-
-                {/* 地図画像（to があれば a タグで新しいタブに） */}
-                <Box mt={6}>
-                    {to ? (
-                        <Box
-                            component="a"
-                            href={to}
-                            target={mapTarget}
-                            rel={
-                                mapTarget === "_blank"
-                                    ? "noopener noreferrer"
-                                    : undefined
-                            }
-                            style={{ display: "inline-block", lineHeight: 0 }}
-                            aria-label={`${city} の地図を開く`}
-                        >
-                            {mapImg}
-                        </Box>
-                    ) : (
-                        mapImg
-                    )}
+            {/* base: column / md+: row */}
+            <Flex
+                direction={{ base: "column", md: "row" }}
+                align={{ base: "stretch", md: "flex-start" }}
+                justify="flex-start"
+                gap={{ base: "md", md: "lg" }}
+                wrap="nowrap"
+            >
+                {/* 情報: base=100%, md=60% */}
+                <Box
+                    w={{ base: "100%", md: "60%" }}
+                    style={{
+                        flex: "0 0 auto",
+                        minWidth: 0, // これが無いとテキストが縦にばらけやすい
+                    }}
+                >
+                    <OfficeInfo
+                        country={country}
+                        city={city}
+                        address={address}
+                        phone={phone}
+                    />
                 </Box>
-            </Stack>
+
+                {/* 地図: base=100%, md=40% */}
+                <Box
+                    w={{ base: "90%", md: "40%" }}
+                    style={{
+                        flex: "0 0 auto", // 40%を維持
+                        minWidth: 0,
+                    }}
+                    mt={{ base: 6, md: 0 }}
+                >
+                    <OfficeMap
+                        city={city}
+                        mapSrc={mapSrc}
+                        to={to}
+                        mapTarget={mapTarget}
+                    />
+                </Box>
+            </Flex>
         </Card>
     );
 };
 
 export default OfficeCard;
-export { OfficeCard };
+export { OfficeCard, OfficeInfo, OfficeMap };

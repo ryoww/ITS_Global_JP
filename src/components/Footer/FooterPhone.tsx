@@ -110,8 +110,8 @@ const FoooterPhone: React.FC = () => {
                 order={1}
                 ta="center"
                 mt={100}
-                mb={40}
-                fw={900}
+                mb={30}
+                fw={700}
                 c="blue.8"
                 style={{ letterSpacing: "0.05em" }}
             >

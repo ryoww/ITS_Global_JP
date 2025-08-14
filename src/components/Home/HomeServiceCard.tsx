@@ -24,7 +24,7 @@ export const ServiceCard = ({
 
     return (
         <Box
-            w={400}
+            w={{ base: 350, md: 400 }}
             h={500}
             bg={bg}
             style={{
@@ -65,7 +65,7 @@ export const ServiceCard = ({
             </Stack>
 
             {/* --- ここを Link 化 --- */}
-            <Center mt={40}>
+            <Center mt={{ base: 20, md: 30 }}>
                 <Button
                     size="md"
                     radius="xl"

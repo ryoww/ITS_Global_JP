@@ -1,5 +1,5 @@
 // src/components/MetricsSection.tsx
-import { Box, Center, SimpleGrid, Stack, Text, Title } from "@mantine/core";
+import { Box, Center, Grid, Stack, Text, Title } from "@mantine/core";
 
 /* ---------- 表示データ ---------- */
 const METRICS = [
@@ -15,12 +15,12 @@ const gradient = "linear-gradient(to right, #195FAA, #00ADAF)";
 
 /* ---------- セクションコンポーネント ---------- */
 export const MetricsSection = () => (
-    <Box bg="blue.0" py={60} w={"100%"} mx="auto" mb={120}>
+    <Box bg="blue.0" py={60} w="100%" mx="auto" mb={120}>
         <Title
             order={1}
             ta="center"
-            mb={40}
-            fw={900}
+            mb={32}
+            fw={{ base: 700, md: 900 }}
             c="blue.8"
             style={{ letterSpacing: "0.05em" }}
         >
@@ -28,39 +28,44 @@ export const MetricsSection = () => (
         </Title>
 
         <Center>
-            <SimpleGrid cols={METRICS.length} spacing={0} w="90%">
-                {METRICS.map((m, i) => (
-                    <Stack
-                        key={m.label}
-                        gap={4}
-                        py={32}
-                        align="center"
-                        style={{
-                            borderRight:
-                                i !== METRICS.length - 1
-                                    ? "1px dashed #94a3b8"
-                                    : undefined,
-                        }}
-                    >
-                        <Text
-                            fz={48}
-                            fw={700}
-                            style={{
-                                backgroundImage: gradient,
-                                backgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                            }}
+            {/* columns=10 にして、MD以上は span=2 で 5列。モバイルは span=5 で 2列。 */}
+            <Grid w="90%" columns={10} gutter="xl">
+                {METRICS.map((m, i) => {
+                    const isLast = i === METRICS.length - 1;
+                    return (
+                        <Grid.Col
+                            key={m.label}
+                            // base(=モバイル): 2列 => span=5。最後の要素だけ中央に来るよう full(=10)。
+                            // md以上: 5列 => span=2 を全要素に適用。
+                            span={{ base: isLast ? 10 : 5, md: 2 }}
                         >
-                            {`${m.value}${m.suffix}`}
-                        </Text>
-
-                        {/* ラベル */}
-                        <Text fz="md" fw={500}>
-                            {m.label}
-                        </Text>
-                    </Stack>
-                ))}
-            </SimpleGrid>
+                            <Stack gap={6} align="center">
+                                <Text
+                                    fz={{ base: 50, md: 56 }}
+                                    fw={800}
+                                    lh={1}
+                                    style={{
+                                        backgroundImage: gradient,
+                                        backgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                    }}
+                                >
+                                    {`${m.value}${m.suffix}`}
+                                </Text>
+                                <Text
+                                    fz={{ base: "md", md: "md" }}
+                                    fw={500}
+                                    ta="center"
+                                    // 長い文言が改行・中央寄せされるように
+                                    style={{ wordBreak: "keep-all" }}
+                                >
+                                    {m.label}
+                                </Text>
+                            </Stack>
+                        </Grid.Col>
+                    );
+                })}
+            </Grid>
         </Center>
     </Box>
 );

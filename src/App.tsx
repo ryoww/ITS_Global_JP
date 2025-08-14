@@ -7,6 +7,7 @@ import About from "./pages/About/About";
 import FlutterAndHybridService from "./pages/Services/Flutter/Flutter-and-Hybrid";
 import DxSolution from "./pages/Services/DX/DXSolution";
 import SAP from "./pages/Services/SAP/SAP";
+import "@mantine/carousel/styles.css";
 
 const App: React.FC = () => {
     return (

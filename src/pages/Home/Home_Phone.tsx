@@ -13,7 +13,7 @@ import HomeCarouselPhone from "../../components/Home/HomeCarouselPhone";
 const services = [
     {
         bg: "#005ba6",
-        imgSrc: "/home/icon-smartphone.svg",
+        imgSrc: "home/icon-smartphone.svg",
         alt: "モバイル開発アイコン",
         title: "フラッターとハイブリッドの\nモバイル開発",
         description:
@@ -22,7 +22,7 @@ const services = [
     },
     {
         bg: "#0088b9",
-        imgSrc: "/home/icon-cart.svg",
+        imgSrc: "home/icon-cart.svg",
         alt: "小売DXアイコン",
         title: "物流および小売向けDXソリューション",
         description:
@@ -31,7 +31,7 @@ const services = [
     },
     {
         bg: "#009e9b",
-        imgSrc: "/home/icon-sap.svg",
+        imgSrc: "home/icon-sap.svg",
         alt: "ERPアイコン",
         title: "SAPコンサルティングとERPの展開",
         description:
@@ -115,7 +115,7 @@ const HomePhone: React.FC = () => {
             </Stack>
 
             <Image
-                src={import.meta.env.BASE_URL + "/home/its1.png"}
+                src={import.meta.env.BASE_URL + "home/its1.png"}
                 mt={50}
                 w={"90%"}
                 h={"100%"}

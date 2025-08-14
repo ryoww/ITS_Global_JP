@@ -18,7 +18,7 @@ type Props = {
 };
 
 const FlutterIntro: React.FC<Props> = ({
-    imageSrc = "/service/flutter/service_1_about.png",
+    imageSrc = "service/flutter/service_1_about.png",
 }) => {
     return (
         <Box py={48}>

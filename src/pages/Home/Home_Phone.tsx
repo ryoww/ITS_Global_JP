@@ -8,6 +8,7 @@ import { ServiceCard } from "../../components/Home/HomeServiceCard";
 import { Carousel } from "@mantine/carousel";
 import { CompanyCarousel } from "../../components/Home/CompanyCarousel";
 import { MetricsSection } from "../../components/Home/MetricsSection";
+import HomeCarouselPhone from "../../components/Home/HomeCarouselPhone";
 
 const services = [
     {
@@ -63,6 +64,8 @@ const TESTIMONIALS: Testimonial[] = [
 const HomePhone: React.FC = () => {
     return (
         <>
+            <HomeCarouselPhone />
+
             <Stack gap="sm" w={"90%"} mx={"auto"}>
                 <Title
                     order={2}

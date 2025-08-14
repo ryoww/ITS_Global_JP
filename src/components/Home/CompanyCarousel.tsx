@@ -2,8 +2,8 @@
 import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselSlide } from "@mantine/carousel";
-import { Box, Center, Image, SimpleGrid } from "@mantine/core";
-import useResponsive from "../../hooks/useResponsive";
+import { Box, Center, Image, SimpleGrid, useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 /* ---------- public/company 内のロゴ一覧 ---------- */
 const LOGOS = [
@@ -39,12 +39,12 @@ const chunk = <T,>(arr: T[], size: number) =>
     );
 
 export const CompanyCarousel = () => {
-    // 例: 以降をスマホ扱いにするブレークポイントはお好みで調整
-    const isPhone = useResponsive();
+    const theme = useMantineTheme();
+    // Mantine の md ブレークポイントを使用してレイアウトを確定
+    const isMdUp = useMediaQuery(`(min-width: ${theme.breakpoints.md})`);
 
-    // ★ スマホは1スライド=6枚（2×3）にしてページ数を増やす
-    //    それ以外は従来どおり1スライド=12枚（4×3）
-    const perSlide = isPhone ? 6 : 12;
+    // モバイル: 2×3=6枚 / md以上: 4×3=12枚
+    const perSlide = isMdUp ? 12 : 6;
     const slides = chunk(LOGOS, perSlide);
 
     const autoplay = useRef(
@@ -54,8 +54,7 @@ export const CompanyCarousel = () => {
     return (
         <Box py={40} w="90%" mx="auto" mb={{ base: 0, md: 120 }}>
             <Carousel
-                // ★ スライドの高さも行数に合わせて可変
-                h={isPhone ? 360 : 450}
+                h={{ base: 360, md: 450 }} // 行数に合わせて高さを可変
                 withIndicators
                 withControls={false}
                 plugins={[autoplay.current]}
@@ -66,7 +65,9 @@ export const CompanyCarousel = () => {
                         height: 12,
                         borderRadius: "50%",
                         opacity: 0.6,
+                        // 非アクティブ
                         "--_indicator-color": "#adb5bd",
+                        // アクティブ
                         "&[data-active]": {
                             opacity: 1,
                             "--_indicator-color": "#4c6ef5",
@@ -77,17 +78,16 @@ export const CompanyCarousel = () => {
                 {slides.map((group, idx) => (
                     <CarouselSlide key={idx}>
                         <SimpleGrid
-                            // ★ 列数：スマホは2列、以降は4列
-                            cols={isPhone ? 2 : 4}
-                            // 行間・余白は端末に合わせて詰めめ
-                            spacing={isPhone ? "md" : "xl"}
-                            verticalSpacing={isPhone ? 24 : 100}
+                            // 列数: base=2列, md=4列（= 4×3 になる）
+                            cols={{ base: 2, md: 4 }}
+                            spacing={{ base: "md", md: "xl" }}
+                            verticalSpacing={{ base: 24, md: 100 }}
                         >
                             {group.map((src) => (
                                 <Center key={src} h={70}>
                                     <Image
                                         src={import.meta.env.BASE_URL + src}
-                                        w={isPhone ? 140 : 350}
+                                        w={{ base: 180, md: 350 }}
                                         h={70}
                                         fit="contain"
                                         alt=""

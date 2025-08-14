@@ -13,7 +13,7 @@ const headingStack = '"Poppins", ' + jpStack;
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
-        <BrowserRouter basename="/its/">
+        <BrowserRouter basename="its-global.jp">
             <MantineProvider
                 withCssVariables
                 theme={{

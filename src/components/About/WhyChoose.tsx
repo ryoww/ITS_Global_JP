@@ -114,7 +114,7 @@ const WhyChooseITS: React.FC<Props> = () => {
                         <Image
                             src={
                                 import.meta.env.BASE_URL +
-                                "/about/banner_choose_its.png"
+                                "about/banner_choose_its.png"
                             }
                             radius={24}
                             w="100%"

@@ -65,7 +65,7 @@ const LogisticsRetailDX: React.FC<Props> = ({
     features = DEFAULT_FEATURES,
 }) => {
     return (
-        <Box py={56} mt={60}>
+        <Box py={16} mt={30}>
             <Container size="lg" w="92%">
                 <Grid gutter={36} align="center">
                     {/* 左：一枚画像 */}

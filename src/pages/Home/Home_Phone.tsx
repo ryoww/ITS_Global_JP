@@ -66,7 +66,7 @@ const HomePhone: React.FC = () => {
         <>
             <HomeCarouselPhone />
 
-            <Stack gap="sm" w={"90%"} mx={"auto"}>
+            <Stack gap="sm" w={"90%"} mx={"auto"} mt={20}>
                 <Title
                     order={2}
                     c="blue.8"

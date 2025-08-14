@@ -66,7 +66,7 @@ const ProcessBenefitSAP: React.FC<Props> = ({
     features = DEFAULT_FEATURES,
 }) => {
     return (
-        <Box py={56} mt={30} w={"100%"}>
+        <Box py={26} mt={20} w={"100%"}>
             <Container size="lg" w="95%">
                 <Grid gutter={45} align="center">
                     {/* 左：一枚画像 */}

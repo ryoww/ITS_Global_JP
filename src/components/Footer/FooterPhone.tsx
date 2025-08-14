@@ -345,31 +345,23 @@ const FoooterPhone: React.FC = () => {
                 </Box>
 
                 <Box w={"90%"} mx={"auto"} c={"white"} mt={20}>
-                    <UnderlineLabel>サービス</UnderlineLabel>
+                    <UnderlineLabel>会社</UnderlineLabel>
                     <Box
                         component={Link}
-                        to="/services/flutter-and-hybrid"
+                        to="/about"
                         c={"white"}
                         style={{ textDecoration: "none" }}
                     >
-                        <Text mt={5}>モバイルアプリケーション開発</Text>
+                        <Text mt={5}>会社情報</Text>
                     </Box>
 
                     <Box
                         component={Link}
-                        to="/services/dx-solution"
+                        to="/contact"
                         c={"white"}
                         style={{ textDecoration: "none" }}
                     >
-                        <Text mt={5}>DXソリューション</Text>
-                    </Box>
-                    <Box
-                        component={Link}
-                        to="/services/dx-solution"
-                        c={"white"}
-                        style={{ textDecoration: "none" }}
-                    >
-                        <Text mt={5}>SAPコンサルティングとERP導入</Text>
+                        <Text mt={5}>お問い合わせ</Text>
                     </Box>
                 </Box>
 
@@ -386,7 +378,7 @@ const FoooterPhone: React.FC = () => {
                         // borderBlock: "1px solid var(--mantine-color-gray-3)",
                     }}
                 >
-                    <Box w={"90%"}>
+                    <Box w={"100%"}>
                         <OfficeCard
                             country="VN"
                             city="ハノイ"

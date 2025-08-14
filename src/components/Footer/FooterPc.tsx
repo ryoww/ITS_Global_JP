@@ -4,6 +4,7 @@ import {
     Box,
     Button,
     Checkbox,
+    Divider,
     Flex,
     Grid,
     Group,
@@ -20,6 +21,7 @@ import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
 import { UnderlineLabel } from "./UnderlineLabel";
 import { Link } from "react-router-dom";
+import OfficeCard from "./OfficeCard";
 
 const FooterPc: React.FC = () => {
     // reCAPTCHA v2 Invisible
@@ -338,49 +340,140 @@ const FooterPc: React.FC = () => {
             </Box>
 
             <Box w={"100%"} h={"100%"} bg={"blue.9"} pb={20}>
-                <Flex align={"flex-start"} justify={"flex-start"}>
-                    <Box w={"30%"} c={"white"}>
+                <Flex
+                    align={"flex-start"}
+                    justify={"flex-start"}
+                    gap={40}
+                    py={40}
+                >
+                    <Box w={"25%"} c={"white"}>
                         <Image
                             src={import.meta.env.BASE_URL + "/logo-ft.svg"}
                             // mx={"auto"}
                             ml={40}
-                            w={210}
-                            py={40}
-                            mt={20}
+                            w={300}
+                            py={0}
+                            mt={40}
                         />
                     </Box>
+                    <Divider orientation="vertical" />
                     <Box w={"70%"} mx={"auto"} c={"white"} mt={40}>
-                        <Flex></Flex>
-                        <Box>
-                            <UnderlineLabel>サービス</UnderlineLabel>
-                            <Box
-                                component={Link}
-                                to="/services/flutter-and-hybrid"
-                                c={"white"}
-                                style={{ textDecoration: "none" }}
-                            >
-                                <Text mt={5}>モバイルアプリケーション開発</Text>
-                            </Box>
+                        <Flex gap={100}>
+                            <Box>
+                                <UnderlineLabel>サービス</UnderlineLabel>
+                                <Box
+                                    component={Link}
+                                    to="/services/flutter-and-hybrid"
+                                    c={"white"}
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text mt={5}>
+                                        モバイルアプリケーション開発
+                                    </Text>
+                                </Box>
 
-                            <Box
-                                component={Link}
-                                to="/services/dx-solution"
-                                c={"white"}
-                                style={{ textDecoration: "none" }}
-                            >
-                                <Text mt={5}>DXソリューション</Text>
+                                <Box
+                                    component={Link}
+                                    to="/services/dx-solution"
+                                    c={"white"}
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text mt={5}>DXソリューション</Text>
+                                </Box>
+                                <Box
+                                    component={Link}
+                                    to="/services/dx-solution"
+                                    c={"white"}
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text mt={5}>
+                                        SAPコンサルティングとERP導入
+                                    </Text>
+                                </Box>
                             </Box>
-                            <Box
-                                component={Link}
-                                to="/services/dx-solution"
-                                c={"white"}
-                                style={{ textDecoration: "none" }}
-                            >
-                                <Text mt={5}>SAPコンサルティングとERP導入</Text>
+                            <Box>
+                                <UnderlineLabel>会社</UnderlineLabel>
+                                <Box
+                                    component={Link}
+                                    to="/about"
+                                    c={"white"}
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text mt={5}>会社情報</Text>
+                                </Box>
+
+                                <Box
+                                    component={Link}
+                                    to="/contact"
+                                    c={"white"}
+                                    style={{ textDecoration: "none" }}
+                                >
+                                    <Text mt={5}>お問い合わせ</Text>
+                                </Box>
                             </Box>
+                        </Flex>
+                    </Box>
+                </Flex>
+
+                <Divider my={10} w={"100%"} mx={"auto"} c={"white"} />
+
+                <Flex align="center" justify="center">
+                    <Box w={"50%"}>
+                        <Image
+                            src={import.meta.env.BASE_URL + "/map-ft-ja.svg"}
+                            mx={"auto"}
+                            w={"90%"}
+                        />
+                    </Box>
+                    <Box w={"50%"}>
+                        <Box w={"90%"}>
+                            <OfficeCard
+                                country="VN"
+                                city="ハノイ"
+                                address="2F Tower 1-2 Dolphin Plaza, 6 Nguyen Hoang, My Dinh 2, Ha Noi"
+                                phone="(+84)24 73096556"
+                                mapSrc="/footer/map-ft1.svg"
+                                to="https://www.google.co.jp/maps/place/ITS+GLOBAL+SOFTWARE+COMPANY/@21.02996,105.7764731,17z/data=!3m1!4b1!4m6!3m5!1s0x31345569f2a844a7:0xaae59cd1f7f3c787!8m2!3d21.02996!4d105.7764731!16s%2Fg%2F11hhj0_f_r?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D"
+                            />
+
+                            <Divider my="sm" variant="dashed" />
+
+                            <OfficeCard
+                                country="VN"
+                                city="ダナン"
+                                address="116 Mai Thuc Lan, Bac My Phu, Ngu Hanh Son, Đa Nang"
+                                phone="(+84)24 73096556"
+                                mapSrc="/footer/map-ft2.svg"
+                                to="https://www.google.co.jp/maps/place/its+global+Da+Nang/@16.0510957,108.2398604,17z/data=!4m6!3m5!1s0x3142176097e39dc7:0xeee3811f28b1df83!8m2!3d16.0510906!4d108.2424353!16s%2Fg%2F11k3j37t6n?entry=tts&g_ep=EgoyMDI0MDcyNC4wKgBIAVAD"
+                            />
+
+                            <Divider my="sm" variant="dashed" />
+
+                            <OfficeCard
+                                country="JP"
+                                city="東京"
+                                address="〒140-0014 東京都品川区大井1-6-3 アゴーラ大井町3F"
+                                phone="(+81)90-6589-9490"
+                                mapSrc="/footer/map-ft3.svg"
+                                to="https://www.google.com/maps/place/%E3%82%A2%E3%82%B4%E3%83%A9%E5%A4%A7%E4%BA%95%E7%94%BA%E3%83%93%E3%83%AB%EF%BC%93%E9%9A%8E/@35.6068613,139.7310031,930m/data=!3m3!1e3!4b1!5s0x60188a7d0dd5d47d:0x865d673297bc52e4!4m6!3m5!1s0x60188bd402848ae5:0x51e47aab3d0f7efd!8m2!3d35.606857!4d139.733578!16s%2Fg%2F11n0cb97_x?entry=tts&g_ep=EgoyMDI0MDcyNC4wKgBIAVAD"
+                            />
+
+                            <Divider my="sm" variant="dashed" />
+
+                            <OfficeCard
+                                country="JP"
+                                city="浜松"
+                                address="〒430-0934 静岡県浜松市中央区千歳町９１−１ 遠鉄モール街ビル"
+                                phone="(+81)90-1280-2806"
+                                mapSrc="/footer/map-ft4.png"
+                                to="https://www.google.com/maps/place/%E3%80%92430-0934+%E9%9D%99%E5%B2%A1%E7%9C%8C%E6%B5%9C%E6%9D%BE%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%8D%83%E6%AD%B3%E7%94%BA%EF%BC%99%EF%BC%91%E2%88%92%EF%BC%91+%E9%81%A0%E9%89%84%E3%83%A2%E3%83%BC%E3%83%AB%E8%A1%97%E3%83%93%E3%83%AB/@34.7037004,137.7284694,740m/data=!3m2!1e3!4b1!4m6!3m5!1s0x601ade7962cce4a9:0x7ad3a2f503035ceb!8m2!3d34.7037004!4d137.7310443!16s%2Fg%2F11g03pz7w1?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D"
+                            />
                         </Box>
                     </Box>
                 </Flex>
+
+                <Divider my={10} w={"100%"} mx={"auto"} c={"white"} />
+
                 <Text
                     ta="center"
                     size="sm"
